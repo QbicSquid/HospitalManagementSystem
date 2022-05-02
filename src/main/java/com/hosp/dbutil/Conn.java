@@ -13,7 +13,7 @@ public class Conn {
 		if (connection == null) {			
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospdb", "root", "root");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospdb", "hospadmin", "pass");
 			} catch (ClassNotFoundException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();

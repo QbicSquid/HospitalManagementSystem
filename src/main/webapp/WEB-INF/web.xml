@@ -10,6 +10,16 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TestServelet</display-name>
+    <servlet-name>TestServelet</servlet-name>
+    <servlet-class>testel.TestServelet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServelet</servlet-name>
+    <url-pattern>/TestServelet</url-pattern>
+  </servlet-mapping>
   <display-name>HospitalManagementSystem</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
