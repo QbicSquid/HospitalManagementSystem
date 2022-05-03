@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../css/login.css">
+<!-- <link rel="stylesheet" href="/views/css/login.css"> -->
+<style><%@include file="/views/css/login.css"%></style>
 <title>Login</title>
 </head>
 <body>

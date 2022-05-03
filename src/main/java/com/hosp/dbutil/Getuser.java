@@ -43,4 +43,39 @@ public class Getuser {
 		
 		return user;
 	}
+	
+	public static User getUserFromUsername(String username) {
+		User user = new User();
+		Connection con;
+		ResultSet rs;
+		
+		try {			
+			con = Conn.getDBConnection();
+			
+			String query = "SELECT * " + 
+					"FROM user " +
+					"WHERE username=?;";
+			
+			PreparedStatement preparedstatement = con.prepareStatement(query);
+			preparedstatement.setString(1, username);
+			
+			rs = preparedstatement.executeQuery();
+			
+			if (!rs.next()) {
+				throw new SQLException("Query returned 0 results.");
+			}
+			
+			user.setId(rs.getString(1));
+			user.setUsername(rs.getString(2));
+			user.setPassword(rs.getString(3));
+			user.setFirstName(rs.getString(4));
+			user.setMiddleName(rs.getString(5));
+			user.setLastName(rs.getString(6));
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
 }
