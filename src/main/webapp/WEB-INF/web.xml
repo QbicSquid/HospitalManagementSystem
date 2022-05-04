@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Pay</display-name>
+    <servlet-name>Pay</servlet-name>
+    <servlet-class>com.hosp.service.Pay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Pay</servlet-name>
+    <url-pattern>/Pay</url-pattern>
+  </servlet-mapping>
 </web-app>

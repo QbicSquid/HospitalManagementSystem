@@ -42,6 +42,7 @@ public class PaymentDAO {
 	}
 	
 	private String getNextPaymentID() {
+
 		String paymentID = "";
 		String query;
 		PreparedStatement preparedStatement;
@@ -68,5 +69,20 @@ public class PaymentDAO {
 		}
 		
 		return paymentID;
+	}
+	
+	public void setPaymentID(String appointmentID, String paymentID) {
+		String query;
+		PreparedStatement preparedStatement;
+		
+		query = "update appointment set paymentID=\"?\" where id=\"?\";";
+		try {
+			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1, paymentID);
+			preparedStatement.setString(2, appointmentID);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }
