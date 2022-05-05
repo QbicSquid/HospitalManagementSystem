@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 
 import com.hosp.commonutil.EditID;
 import com.hosp.commonutil.InvalidIDException;
-import com.hosp.model.Appointment;
 
 public class DocAppointmentDAO {
 	private Connection con;
