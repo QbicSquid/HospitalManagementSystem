@@ -7,19 +7,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.hosp.payportal.PayPortal;
-import com.hosp.dbutil.PaymentDAO;
-
 /**
- * Servlet implementation class Pay
+ * Servlet implementation class DocAppointment
  */
-public class Pay extends HttpServlet {
+public class DocAppointment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Pay() {
+    public DocAppointment() {
         super();
     }
 
@@ -34,22 +31,9 @@ public class Pay extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String recieptID = PayPortal.pay();
-		String appointmentID = (String)request.getAttribute("appointmentID"); // TODO: get the id here from a javabean instead
-		String paymentID;
-		String method = request.getParameter("method");
-		PaymentDAO paymentDAO = new PaymentDAO();
-		
-		if (appointmentID == null) {
-			throw new ServletException("appointment id not set");
-		}
-		
-		paymentID = paymentDAO.insertPayment(recieptID, method);
-		paymentDAO.setPaymentID(appointmentID, paymentID);
-		
-		// TODO: change the logic. To make this class usable by others, just put payment details in a bean and forward to appropriate servlet
-		
-		request.getRequestDispatcher("add path to view appointment page, possibly through appointment servlet").forward(request, response);
+		doGet(request, response);
+		String doctorID = request.get
+				
 	}
 
 }

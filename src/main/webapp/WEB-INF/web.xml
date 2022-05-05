@@ -21,12 +21,13 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Pay</display-name>
-    <servlet-name>Pay</servlet-name>
-    <servlet-class>com.hosp.service.Pay</servlet-class>
+    <display-name>DocAppointment</display-name>
+    <servlet-name>DocAppointment</servlet-name>
+    <servlet-class>com.hosp.service.DocAppointment</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Pay</servlet-name>
-    <url-pattern>/Pay</url-pattern>
+    <servlet-name>DocAppointment</servlet-name>
+    <url-pattern>/DocAppointment</url-pattern>
+    <url-pattern>/DocAppointmentPay</url-pattern>
   </servlet-mapping>
 </web-app>
