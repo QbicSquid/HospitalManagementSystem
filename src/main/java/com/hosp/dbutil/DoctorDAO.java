@@ -27,7 +27,7 @@ public class DoctorDAO {
 		ResultSet resultSet;
 		int size = 0, i = 0;
 		
-		query = "SELECT * FROM doctorSchedule WHERE id=?;";
+		query = "SELECT * FROM doctorSchedule WHERE doctorID=?;";
 		try {
 			preparedStatement = con.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			preparedStatement.setString(1, doctorID);
@@ -38,15 +38,20 @@ public class DoctorDAO {
 			}
 			size = resultSet.getRow();
 			schedule = new DoctorSchedule[size];
+			
+			for (int j = 0; j < size; j++) {
+				schedule[j] = new DoctorSchedule();
+			}
+			
 			resultSet.first();
 			
-			while (resultSet.next()) {
+			do {
 				schedule[i].setDoctorID(resultSet.getString(1));
 				schedule[i].setDayOfWeek(resultSet.getString(2));
 				schedule[i].setStartTime(resultSet.getString(3));
 				schedule[i].setEndTime(resultSet.getString(4));
 				i++;
-			}
+			} while (resultSet.next());
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -73,9 +78,14 @@ public class DoctorDAO {
 			}
 			size = resultSet.getRow();
 			doctors = new Doctor[size];
+			
+			for (int j = 0; j < size; j++) {
+				doctors[j] = new Doctor();
+			}
+			
 			resultSet.first();
 			
-			while (resultSet.next()) {
+			do {
 				doctors[i].setId(resultSet.getString(1));
 				doctors[i].setFirstName(resultSet.getString(2));
 				doctors[i].setMiddleName(resultSet.getString(3));
@@ -85,7 +95,7 @@ public class DoctorDAO {
 				doctors[i].setDob(resultSet.getString(7));
 				doctors[i].setCost(resultSet.getDouble(8));
 				i++;
-			}
+			} while (resultSet.next());
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

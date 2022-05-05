@@ -30,7 +30,7 @@ public class DocAppointmentDAO {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, docAppID);
 			preparedStatement.setString(2, date_time);
-			preparedStatement.setString(3, docAppID);
+			preparedStatement.setString(3, remarks);
 			preparedStatement.setString(4, doctorID);
 			preparedStatement.execute();
 		} catch (SQLException e) {
@@ -75,11 +75,12 @@ public class DocAppointmentDAO {
 		String query;
 		PreparedStatement preparedStatement;
 		
-		query = "update appointment set paymentID=\"?\" where id=\"?\";";
+		query = "update appointment set paymentID=? where id=?;";
 		try {
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, paymentID);
 			preparedStatement.setString(2, appointmentID);
+			preparedStatement.execute();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
