@@ -127,16 +127,16 @@ public class StockManagerDAO {
 	*/
 	
 	//read
-	public void readStock(String medicineID, String stockpileID, String manuDate, String expDate, int amount) {
+	public void readStock() {
 		String query;
 		PreparedStatement preparedStatement;
-		
+		ResultSet rs;
 		query = "SELECT * FROM stockpile;";
 		
 		try {
 			System.out.println("readDAO is Working");
 			preparedStatement = con.prepareCall(query);
-			preparedStatement.execute();
+			preparedStatement.executeQuery();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

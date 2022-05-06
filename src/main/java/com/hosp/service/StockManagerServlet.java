@@ -33,6 +33,8 @@ public class StockManagerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request.getRequestDispatcher("/views/showStock.jsp").forward(request, response);
+		//System.out.println("get is working");
 		
 	}
 
@@ -41,7 +43,7 @@ public class StockManagerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();
-		
+		System.out.println("post is working");
 		switch (action) {
 		
 			case "/ManageStock":
@@ -59,6 +61,7 @@ public class StockManagerServlet extends HttpServlet {
 				
 				//read
 				try{
+					System.out.println("read is working");
 					readStock(request, response);
 				} catch(SQLException e) {
 					e.printStackTrace();

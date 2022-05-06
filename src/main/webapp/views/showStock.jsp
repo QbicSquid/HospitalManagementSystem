@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
+<style><%@include file="css/stock.css"%></style>
 <title>showStock</title>
 </head>
 <body>
