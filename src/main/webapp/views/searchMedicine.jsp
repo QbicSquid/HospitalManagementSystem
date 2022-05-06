@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="<%=request.getContextPath()%>/placeOrderServlet" method="post">
+	<input type="text" name="medname" />
+	<input type="text" name="quantity" />
+	<input type="submit" name="submit" value="submit">
+</form>
+
 <table>
 	<tr>
 		<td>id</td>
@@ -24,6 +30,16 @@
 		<td>description</td>
 		<td>${ medicine.description }</td>
 	</tr>
+	<tr>
+		<td>Total price</td>
+		<td>${ quantity.tprice }</td>
+	</tr>
+	
+	
 </table>
+
+<form id="form1" action="addtocart" method="post">
+<button type="submit" form="form1"  class="btn btn-warning" name="cartid" value="submit">Add to cart </button>
+</form>
 </body>
 </html>

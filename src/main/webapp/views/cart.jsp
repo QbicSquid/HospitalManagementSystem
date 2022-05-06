@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/placeOrderServlet" method="post">
-	<input type="text" name="medname" />
-	<input type="submit" name="submit" value="submit">
-</form>
+
 </body>
 </html>

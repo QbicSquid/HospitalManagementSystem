@@ -19,8 +19,12 @@ public class placeOrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher("/views/temporaryinput.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/searchMedicine.jsp").forward(request, response);
 	}
+	
+	
+	
+	
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,12 +38,13 @@ public class placeOrderServlet extends HttpServlet {
 //		String description =request.getParameter("description");
 		
 		String medname = request.getParameter("medname");
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		GetMedicineDAO getMedDAO = new GetMedicineDAO();
 		Medicine medicine = getMedDAO.getMedicine(medname);
 		
 		request.setAttribute("medicine", medicine);
 		
-		request.getRequestDispatcher("/views/temporaryoutput.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/searchMedicine.jsp").forward(request, response);
 	}
 
 }

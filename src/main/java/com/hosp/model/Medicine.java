@@ -8,6 +8,23 @@ public class Medicine implements Serializable {
 	private int cost;
 	private String description;
 	
+	
+	
+	public Medicine(String id, String name, int cost, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.cost = cost;
+		this.description = description;
+	}
+	
+	
+	public Medicine() {
+		// TODO Auto-generated constructor stub
+	}
+	
+
+
 	public String getId() {
 		return id;
 	}

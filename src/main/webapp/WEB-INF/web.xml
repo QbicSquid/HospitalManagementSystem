@@ -19,4 +19,34 @@
     <servlet-name>placeOrderServlet</servlet-name>
     <url-pattern>/placeOrderServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>orderdMedicine</display-name>
+    <servlet-name>orderdMedicine</servlet-name>
+    <servlet-class>com.hosp.service.orderdMedicine</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>orderdMedicine</servlet-name>
+    <url-pattern>/orderdMedicine</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertOrderServlet</display-name>
+    <servlet-name>insertOrderServlet</servlet-name>
+    <servlet-class>com.hosp.service.insertOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertOrderServlet</servlet-name>
+    <url-pattern>/insertOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addtocartServlet</display-name>
+    <servlet-name>addtocartServlet</servlet-name>
+    <servlet-class>com.hosp.service.addtocartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addtocartServlet</servlet-name>
+    <url-pattern>/addtocartServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
