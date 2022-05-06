@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
+
 
 import com.hosp.commonutil.EditID;
 import com.hosp.commonutil.InvalidIDException;
+import com.hosp.model.MedicineStock;
 
 public class StockManagerDAO {
 	
@@ -23,27 +23,31 @@ public class StockManagerDAO {
 		}
 	}
 	
-	public String insertStock( String medicineID,String manuDate, String expDate, int amount) {
+	//insert
+	public String insertStock(String medicineID, String manuDate, String expDate, int amount) {
 		String stockpileID, query;
 		PreparedStatement preparedStatement;
 		
 		stockpileID = getNextStockpileID();
-		query = "INSERT INTO stockpile VALUES (?, ?, ?, ?)";
+		query = "INSERT INTO stockpile VALUES (?, ?, ?, ?, ?)";
 		
 		try {
-			java.util.Date selectedDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("manuDate"));
-			java.sql.Date selectedSQLDate =  new java.sql.Date(selectedDate.getTime());
+			System.out.println("insertDAO is Working");
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, medicineID);
-			preparedStatement.setString(2, manuDate);
-			preparedStatement.setString(3, expDate);
-			preparedStatement.setInt(4, amount);
+			preparedStatement.setString(2, stockpileID);
+			System.out.println(""+ medicineID + " " + stockpileID);
+			preparedStatement.setString(3, manuDate);
+			preparedStatement.setString(4, expDate);
+			preparedStatement.setInt(5, amount);
+			
+			preparedStatement.execute();
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-		}
-		
+		} 
+		System.out.println(" return Working");
 		return stockpileID;
 	}
 	
@@ -53,19 +57,22 @@ public class StockManagerDAO {
 		PreparedStatement preparedStatement;
 		ResultSet rs;
 		
-		query = "SELECT id "
-				+ "FROM payment "
-				+ "ORDER BY id DESC "
+		query = "SELECT stockpileID "
+				+ "FROM stockpile "
+				+ "ORDER BY stockpileID DESC "
 				+ "LIMIT 1;";
 		
 		try {
+			System.out.println("NextStock is Working");
 			preparedStatement = con.prepareStatement(query);
 			rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
 				stockpileID= EditID.incrementID(rs.getString(1));
+				
 			} else {
 				stockpileID = "S_001";
+				System.out.println("incStock is Working");
 			}	
 			
 		} catch (SQLException | InvalidIDException | NumberFormatException e) {
@@ -75,19 +82,21 @@ public class StockManagerDAO {
 		
 		return stockpileID;
 	}
+/*
 	
-	public String updateStock(String medicineID,String manuDate, String expDate, int amount) {
-		String stockpileID, query;
+	//update
+	public void updateStock(String medicineID, String stockpileID, int amount) {
+		String query;
 		PreparedStatement preparedStatement;
+		ResultSet rs;
 		
-		query = "UPDATE stockpile SET (?, ?, ?, ?) WHERE stockpileID /? ";
+		query = "UPDATE stockpile SET amount = ? WHERE stockpileID=? AND medicineID = ?;";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicineID);
-			preparedStatement.setString(2, manuDate);
-			preparedStatement.setString(3, expDate);
-			preparedStatement.setInt(4, amount);
+			preparedStatement.setInt(1, amount);
+			preparedStatement.execute();
+			
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -96,24 +105,42 @@ public class StockManagerDAO {
 		
 	}
 	
-	public String deleteStock(String medicineID,String manuDate, String expDate, int amount) {
-		String stockpileID, query;
+	//delete
+	public void deleteStock(String medicineID, String stockpileID) {
+		String  query;
 		PreparedStatement preparedStatement;
 		
-		query = "UPDATE stockpile SET (?, ?, ?, ?) WHERE /?";
+		query = "DELETE FROM stockpile WHERE stockpileID=? AND medicineID = ?;";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1, medicineID);
-			preparedStatement.setString(2, manuDate);
-			preparedStatement.setString(3, expDate);
-			preparedStatement.setInt(4, amount);
+			preparedStatement.setString(1,medicineID);
+			preparedStatement.setString(2,stockpileID);
+			preparedStatement.execute();
 			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
-		return stockpileID;
 	}
+	*/
+	
+	//read
+	public void readStock(String medicineID, String stockpileID, String manuDate, String expDate, int amount) {
+		String query;
+		PreparedStatement preparedStatement;
+		
+		query = "SELECT * FROM stockpile;";
+		
+		try {
+			System.out.println("readDAO is Working");
+			preparedStatement = con.prepareCall(query);
+			preparedStatement.execute();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
 }

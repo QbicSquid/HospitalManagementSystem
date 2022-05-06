@@ -19,4 +19,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>StockManagerServlet</display-name>
+    <servlet-name>StockManagerServlet</servlet-name>
+    <servlet-class>com.hosp.service.StockManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StockManagerServlet</servlet-name>
+    <url-pattern>/StockManagerServlet</url-pattern>
+    <url-pattern>/ManageStock</url-pattern>
+    <url-pattern>/stockList</url-pattern>
+  </servlet-mapping>
 </web-app>

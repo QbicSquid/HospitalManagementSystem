@@ -9,15 +9,11 @@
 <body>
   <div align = "center">
 	<h1>Employee Register Form</h1>
-	<form action="<%= request.getServletPath() %>/register" method = "post">
+	<form action="<%= request.getContextPath() %>/ManageStock" method = "post">
 	<table style = "width: 80%">
 	<tr>
 	 <td>medicineID</td>
 	 <td><input type = "text" name="medicineID" /><td>
-	 </tr>
-	 <tr> 
-	 <td>stockpileID</td>
-	 <td><input type = "date" name="stockpileID" /><td>
 	 </tr>
 	 <tr> 
 	 <td>manuDate</td>
@@ -25,7 +21,7 @@
 	 </tr>
 	 <tr> 
 	 <td>expDate</td>
-	 <td><input type = "password" name="expDate" /><td>
+	 <td><input type = "date" name="expDate" /><td>
 	 </tr>
 	 <tr> 
 	 <td>amount</td>
