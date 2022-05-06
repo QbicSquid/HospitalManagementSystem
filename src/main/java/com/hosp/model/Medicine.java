@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Medicine implements Serializable {
 	private String id;
 	private String name;
-	private int cost;
+	private double cost;
 	private String description;
 	
 	
@@ -20,7 +20,6 @@ public class Medicine implements Serializable {
 	
 	
 	public Medicine() {
-		// TODO Auto-generated constructor stub
 	}
 	
 
@@ -31,7 +30,7 @@ public class Medicine implements Serializable {
 	public String getName() {
 		return name;
 	}
-	public int getCost() {
+	public double getCost() {
 		return cost;
 	}
 	public String getDescription() {
@@ -43,7 +42,7 @@ public class Medicine implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setCost(int cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 	public void setDescription(String description) {

@@ -16,23 +16,23 @@
 <table>
 	<tr>
 		<td>id</td>
-		<td>${ medicine.id }</td>
+		<td>${ medicineQty.id }</td>
 	</tr>
 	<tr>
 		<td>name</td>
-		<td>${ medicine.name }</td>
+		<td>${ medicineQty.name }</td>
 	</tr>
 	<tr>
 		<td>cost</td>
-		<td>${ medicine.cost }</td>
+		<td>${ medicineQty.cost }</td>
 	</tr>
 	<tr>
 		<td>description</td>
-		<td>${ medicine.description }</td>
+		<td>${ medicineQty.description }</td>
 	</tr>
 	<tr>
 		<td>Total price</td>
-		<td>${ quantity.tprice }</td>
+		<td>${ medicineQty.totalPrice }</td>
 	</tr>
 	
 	

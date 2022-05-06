@@ -6,8 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.hosp.dbutil.GetMedicineDAO;
+import com.hosp.dbutil.MedicineDAO;
 import com.hosp.model.Medicine;
+import com.hosp.model.MedicineQuantity;
 
 public class placeOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,10 +40,20 @@ public class placeOrderServlet extends HttpServlet {
 		
 		String medname = request.getParameter("medname");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		GetMedicineDAO getMedDAO = new GetMedicineDAO();
-		Medicine medicine = getMedDAO.getMedicine(medname);
+		MedicineDAO getMedDAO = new MedicineDAO();
+		Medicine medicine = getMedDAO.getMedicine(medname); // TODO: Fix this
 		
-		request.setAttribute("medicine", medicine);
+		
+		// converting Medicine object to an MedicineQuantity object
+		MedicineQuantity medicineQuantity = new MedicineQuantity();
+		medicineQuantity.setCost(medicine.getCost());
+		medicineQuantity.setDescription(medicine.getDescription());
+		medicineQuantity.setId(medicine.getId());
+		medicineQuantity.setName(medicine.getName());
+		medicineQuantity.setQuantity(quantity);
+		medicineQuantity.calcTotalPrice();
+		
+		request.setAttribute("medicineQty", medicineQuantity);
 		
 		request.getRequestDispatcher("/views/searchMedicine.jsp").forward(request, response);
 	}

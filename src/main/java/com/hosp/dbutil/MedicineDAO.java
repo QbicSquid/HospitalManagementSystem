@@ -14,7 +14,7 @@ import com.hosp.model.Medicine;
 
 
 
-public class GetMedicineDAO {
+public class MedicineDAO {
 	
 	public Medicine getMedicine(String name) {
 		
