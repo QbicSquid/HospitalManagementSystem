@@ -31,11 +31,11 @@ public class LoginServlet extends HttpServlet {
 		String password =request.getParameter("password");
 		User user = Getuser.getUserFromUsername(username);
 		
-		System.out.println("DEBUG LINE " + username); // debug line
-		System.out.println("DEBUG LINE " + user.getUsername()); // debug line
+		//System.out.println("DEBUG LINE " + username);  debug line
+		//System.out.println("DEBUG LINE " + user.getUsername());  debug line
 		
-		System.out.println("DEBUG LINE " + password); // debug line
-		System.out.println("DEBUG LINE " + user.getPassword()); // debug line
+		//System.out.println("DEBUG LINE " + password);  debug line
+		//System.out.println("DEBUG LINE " + user.getPassword());  debug line
 		
 		if (password.equals(user.getPassword())) {
 			HttpSession session = request.getSession();
