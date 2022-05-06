@@ -7,6 +7,9 @@ public class MedicineStock {
 	private String expDate;
 	private int amount;
 	
+	public MedicineStock() {
+	}
+	
 	public MedicineStock(String medicineID, String stockpileID, String manuDate, String expDate, int amount) {
 		super();
 		this.medicineID = medicineID;

@@ -127,20 +127,55 @@ public class StockManagerDAO {
 	*/
 	
 	//read
+<<<<<<< HEAD
 	public void readStock() {
 		String query;
 		PreparedStatement preparedStatement;
 		ResultSet rs;
+=======
+	public MedicineStock[] readStock() {
+		String query;
+		PreparedStatement preparedStatement;
+		ResultSet resultSet;
+		MedicineStock[] medicineStock = null;
+		int size = 0, i = 0;
+		
+>>>>>>> 60c03ed1b6da82c35b5a76d767b66c2857f6468a
 		query = "SELECT * FROM stockpile;";
 		
 		try {
 			System.out.println("readDAO is Working");
+<<<<<<< HEAD
 			preparedStatement = con.prepareCall(query);
 			preparedStatement.executeQuery();
+=======
+			preparedStatement = con.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			resultSet = preparedStatement.executeQuery();
+			
+			if (resultSet.last()) {
+				size = resultSet.getRow();
+				resultSet.first();
+				medicineStock = new MedicineStock[size];
+				
+				do {
+					medicineStock[i] = new MedicineStock();
+					medicineStock[i].setMedicineID(resultSet.getString(1));
+					medicineStock[i].setStockpileID(resultSet.getString(2));
+					medicineStock[i].setManuDate(resultSet.getString(3));
+					medicineStock[i].setExpDate(resultSet.getString(4));
+					medicineStock[i].setAmount(resultSet.getInt(5));
+					
+					i++;
+				} while (resultSet.next());
+			}
+			
+>>>>>>> 60c03ed1b6da82c35b5a76d767b66c2857f6468a
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+		
+		return medicineStock;
 	}
 	
 }
