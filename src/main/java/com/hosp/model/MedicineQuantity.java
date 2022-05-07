@@ -2,10 +2,13 @@ package com.hosp.model;
 
 import java.io.Serializable;
 
+
+
 public class MedicineQuantity extends Medicine implements Serializable {
 	
 	private int quantity;	
 	private double totalPrice;
+	
 	
 	public int getQuantity() {
 		return quantity;
@@ -22,5 +25,11 @@ public class MedicineQuantity extends Medicine implements Serializable {
 
 	public void calcTotalPrice() {
 		totalPrice = quantity * this.getCost();
-	}
+	}	
+	
 }
+
+
+
+
+

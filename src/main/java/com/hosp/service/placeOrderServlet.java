@@ -41,7 +41,7 @@ public class placeOrderServlet extends HttpServlet {
 		String medname = request.getParameter("medname");
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		MedicineDAO getMedDAO = new MedicineDAO();
-		Medicine medicine = getMedDAO.getMedicine(medname); // TODO: Fix this
+		Medicine medicine = getMedDAO.getMedicine(medname); 
 		
 		
 		// converting Medicine object to an MedicineQuantity object

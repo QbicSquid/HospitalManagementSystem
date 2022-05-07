@@ -8,9 +8,12 @@ import java.sql.SQLException;
 //import java.util.ArrayList;
 //import java.util.List;
 
+
 import com.hosp.model.Medicine;
 //import com.oop.model.item;
 //import com.oop.util.DBConnect;
+import com.oop.model.item;
+import com.oop.util.DBConnect;
 
 
 
@@ -58,43 +61,43 @@ public class MedicineDAO {
 		
 		
 	}
+	
+	//inserting values
+	
+	public static boolean insertmedicine() throws SQLException{
+		
+		Connection con;
+		ResultSet rs1;
+		con = Conn.getDBConnection();
+		PreparedStatement preparedstatement = con.prepareStatement("INSERT INTO orderedmedicine VALUES "+" (?,?,?,?,?)");
+		
+		try {
+			preparedstatement.setSring(1, orderID());
+			preparedstatement.setInt(2, medNo());
+			preparedstatement.setString(3, medicineID());
+			preparedstatement.setInt(4, amount());
+			preparedstatement.setString(5, dosage());
+			
+		
+		long rs1=preparedstatement.executeLargeUpdate();
+		
+		if (rs1>0) {
+			isSuccess=true;
+		}
+		
+		else {
+			isSuccess=false;
+		}
+		
+		
+		
+	}catch(SQLException e) {
+		
+	}
+		return isSuccess;
+		
+	}
+	}
+
 }
 
-
-
-
-
-
-/*
-		public static List<Medicine> getSearchMedicine(String sname) throws SQLException{
-			
-			ArrayList<Medicine> Medicine1 = new ArrayList<>();
-			
-			
-			//connection
-			Connection con;
-			con = Conn.getDBConnection();
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * " + 
-											 "FROM medicine " +
-											 "WHERE name = ?;");
-			
-			while(rs.next()) {
-				
-				String id = rs.getString(1);
-				String name = rs.getString(2);
-				int cost=rs.getInt(3);
-				String description=rs.getString(4);
-				
-				
-				
-				
-				Medicine i = new Medicine(id,name,cost,description);
-				Medicine1.add(i);
-			}
-			
-			return Medicine1;
-			
-		}
-
-*/

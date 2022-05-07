@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+
+ 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +41,12 @@
 	
 	
 </table>
+<form action = "<%=request.getContextPath()%>/cartServlet" method = "post">
+<input type="submit" name="add" value="order">
 
-<form id="form1" action="addtocart" method="post">
-<button type="submit" form="form1"  class="btn btn-warning" name="cartid" value="submit">Add to cart </button>
 </form>
+
+
+ 
 </body>
 </html>
