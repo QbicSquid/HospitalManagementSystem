@@ -35,6 +35,10 @@
 		<td>${ medicineQty.description }</td>
 	</tr>
 	<tr>
+		<td>quantity</td>
+		<td>${ medicineQty.quantity }</td>
+	</tr>
+	<tr>
 		<td>Total price</td>
 		<td>${ medicineQty.totalPrice }</td>
 	</tr>
@@ -48,8 +52,9 @@
     	
     	<input type="hidden" name="medicineID" value=${ medicineQty.id } />
     	<input type="hidden" name="medicineName" value=${ medicineQty.name } />
+    	<input type="hidden" name="medicineQty" value=${ medicineQty.quantity } />
     	<input type="hidden" name="medicinePrice" value=${ medicineQty.totalPrice } />
-    	
+    	    	
     	<textarea rows="5" cols="100" name="dosage" maxlength="500"></textarea><br/>
     	
         <input type="submit" value="order">

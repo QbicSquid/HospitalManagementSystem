@@ -2,8 +2,7 @@
     pageEncoding="ISO-8859-1"%>
    
   
- <%@ page import ="java.util.ArrayList"%>
- <%@ page import ="java.util.List"%>
+ <%@page import="com.hosp.model.OrderedMedicine, com.hosp.dbutil.MedicineDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +26,15 @@ Hello<%=id%>
 		<td><%= request.getParameter("medicineName")%></td>
 	</tr>
 	<tr>
+		<td>Quantity</td>
+		<td><%= request.getParameter("medicineQty")%></td>
+	</tr>
+	<tr>
 		<td>Total price</td>
 		<td><%= request.getParameter("medicinePrice")%></td>
 	</tr>
 	<tr>
-		<td>doasage</td>
+		<td>dosage</td>
 		
 		<td><%= request.getParameter("dosage")%></td>
 		
@@ -40,15 +43,21 @@ Hello<%=id%>
 	
 </table>
 
-<form action="addtocart" method="post">
+<form action="<%=request.getContextPath()%>/insertMedicineServlet" method="post">
+<input type="hidden" name="medicineID" value=${ medicineQty.id } />
+
+<input type="hidden" name="medicinePrice" value=${ medicineQty.totalPrice } />
+<input type="hidden" name="dosage" value=${ medicineQty.description }/>
+
 <button type="submit"   class="btn btn-warning" name="insert" value="#">Place Order</button>
+</form>
 
 <button type="submit"   class="btn btn-warning" name="delete" value="#">Delete Order</button>
 
 <button type="submit"   class="btn btn-warning" name="update" value="#">Update Order</button>
 
 <button type="submit"  class="btn btn-warning" name="order" value="#">Add Medicine</button>
-</form>
+
 
 </body>
 </html>

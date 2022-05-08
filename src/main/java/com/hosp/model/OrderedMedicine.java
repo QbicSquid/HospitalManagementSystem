@@ -2,10 +2,12 @@ package com.hosp.model;
 
 public class OrderedMedicine {
 	private String orderID;
-	private int medNo;//kiyanne mokkda
-	private String medicineID; //medicine wala id eka
+	private int medNo;
+	private String medicineID; 
 	private int amount;
-	private String dosage;// koomada daanne
+	private String dosage;
+	
+	
 	
 	public String getOrderID() {
 		return orderID;
@@ -37,5 +39,8 @@ public class OrderedMedicine {
 	public void setDosage(String dosage) {
 		this.dosage = dosage;
 	}
+	
+	
+	
 	
 }

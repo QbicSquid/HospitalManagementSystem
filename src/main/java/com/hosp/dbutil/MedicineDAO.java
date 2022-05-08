@@ -104,11 +104,11 @@ public class MedicineDAO {
 
 
 
-	public String insertOrderedMedicine(String orderID, int medNo, String medicineID, int amount, String dosage) {				
-		String orderID1, query;
+	public String insertOrderedMedicine(int medNo, String medicineID, int amount, String dosage) {				
+		String orderID, query;
 		PreparedStatement preparedStatement;
 				
-		orderID1 = getNextorderID();
+		orderID = getNextorderID();
 				query = "INSERT INTO OrderedMedicine VALUES (?, ?, ?, ?, ?)";
 				
 				try {
@@ -116,7 +116,7 @@ public class MedicineDAO {
 					preparedStatement = con.prepareStatement(query);
 					preparedStatement.setString(1, orderID);
 					preparedStatement.setInt(2, medNo);
-					System.out.println(""+ orderID + " " + orderID1);
+					System.out.println(""+ orderID + " " + orderID);
 					preparedStatement.setString(3, medicineID);
 					preparedStatement.setInt(4, amount);
 					preparedStatement.setString(5, dosage);
@@ -128,7 +128,7 @@ public class MedicineDAO {
 					e.printStackTrace();
 				} 
 				System.out.println(" return Working");
-				return orderID1;
+				return orderID;
 		}
 			
 		

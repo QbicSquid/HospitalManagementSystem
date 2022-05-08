@@ -18,6 +18,7 @@
   <servlet-mapping>
     <servlet-name>placeOrderServlet</servlet-name>
     <url-pattern>/placeOrderServlet</url-pattern>
+    <url-pattern>/newplaceOrderServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
