@@ -8,7 +8,6 @@ import java.sql.Types;
 
 import com.hosp.commonutil.EditID;
 import com.hosp.commonutil.InvalidIDException;
-import com.hosp.model.Appointment;
 
 public class AppointmentDAO {
 	private Connection con;
@@ -130,9 +129,9 @@ public class AppointmentDAO {
 		String query;
 		PreparedStatement preparedStatement;
 		
-		query = "UPDATE appointmnet SET "
+		query = "UPDATE appointment SET "
 				+ "date_time=?, "
-				+ "remarks=?, "
+				+ "remarks=? "
 				+ "WHERE id=?;";
 		
 		try {
