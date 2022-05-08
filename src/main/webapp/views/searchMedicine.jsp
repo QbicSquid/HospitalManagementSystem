@@ -20,23 +20,23 @@
 <table>
 	<tr>
 		<td>id</td>
-		<td><input type="text" name="medicineID" class="txt-box" value= "${ medicineQty.id }"/></td>
+		<td>${ medicineQty.id }</td>
 	</tr>
 	<tr>
 		<td>name</td>
-		<td><input type ="text" name="medicineName" class="txt-box" value = "${ medicineQty.name }"/></td>
+		<td>${ medicineQty.name }</td>
 	</tr>
 	<tr>
 		<td>cost</td>
-		<td><input type ="text" name="medicineCost" class="txt-box" value = "${ medicineQty.cost }"/></td>
+		<td>${ medicineQty.cost }</td>
 	</tr>
 	<tr>
 		<td>description</td>
-		<td><input type ="text" name="medicineDes" class="txt-box" value = "${ medicineQty.description }"/></td>
+		<td>${ medicineQty.description }</td>
 	</tr>
 	<tr>
 		<td>Total price</td>
-		<td><input type ="text" name="medicinePrice" class="txt-box" value = "${ medicineQty.totalPrice }"/></td>
+		<td>${ medicineQty.totalPrice }</td>
 	</tr>
 	
 	
@@ -45,7 +45,13 @@
 <% String id="Customer";%>
     <form action="<%=request.getContextPath()%>/views/cart.jsp" method="post">
     <%session.setAttribute("id", id);%>
-    
+    	
+    	<input type="hidden" name="medicineID" value=${ medicineQty.id } />
+    	<input type="hidden" name="medicineName" value=${ medicineQty.name } />
+    	<input type="hidden" name="medicinePrice" value=${ medicineQty.totalPrice } />
+    	
+    	<textarea rows="5" cols="100" name="dosage" maxlength="500"></textarea><br/>
+    	
         <input type="submit" value="order">
     </form>
 

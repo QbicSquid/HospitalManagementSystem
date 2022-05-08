@@ -19,16 +19,22 @@ Hello<%=id%>
 	<tr>
 		<td>id</td>
 		
-		<td><input type="text" name="medicineID" class="txt-box" value="<%= request.getParameter("medicineID")%>"/></td>
+		<td><%= request.getParameter("medicineID")%></td>
 		
 	</tr>
 	<tr>
 		<td>name</td>
-		<td><input type="text" name="medicineName" class="txt-box" value="<%= request.getParameter("medicineName")%>"/></td>
+		<td><%= request.getParameter("medicineName")%></td>
 	</tr>
 	<tr>
 		<td>Total price</td>
-		<td><input type="text" name="medicinePrice" class="txt-box" value="<%= request.getParameter("medicinePrice")%>"/></td>
+		<td><%= request.getParameter("medicinePrice")%></td>
+	</tr>
+	<tr>
+		<td>doasage</td>
+		
+		<td><%= request.getParameter("dosage")%></td>
+		
 	</tr>
 	
 	

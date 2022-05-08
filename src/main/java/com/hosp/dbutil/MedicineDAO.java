@@ -10,6 +10,8 @@ import java.sql.SQLException;
 
 
 import com.hosp.model.Medicine;
+import com.hosp.commonutil.InvalidIDException;
+import com.hosp.commonutil.EditID;
 //import com.oop.model.item;
 //import com.oop.util.DBConnect;
 
@@ -17,12 +19,12 @@ import com.hosp.model.Medicine;
 
 
 public class MedicineDAO {
+	private Connection con;
 	
 	public Medicine getMedicine(String name) {
 		
 		Medicine medicine= new Medicine();
 		
-		Connection con;
 		ResultSet rs;
 	
 		
@@ -60,7 +62,6 @@ public class MedicineDAO {
 		
 		
 	}
-}
 	/*
 	//inserting values
 	
@@ -101,14 +102,9 @@ public class MedicineDAO {
 */
 
 
-/*
 
-	public String insertOrderedMedicine(String orderID, int medNo, String medicineID, int amount, String dosage) {
-				
-			
-		Connection con;
-		ResultSet rs;
-				
+
+	public String insertOrderedMedicine(String orderID, int medNo, String medicineID, int amount, String dosage) {				
 		String orderID1, query;
 		PreparedStatement preparedStatement;
 				
@@ -154,7 +150,7 @@ public class MedicineDAO {
 					rs = preparedStatement.executeQuery();
 					
 					if (rs.next()) {
-						orderID= editID.incrementID(rs.getString(1));
+						orderID= EditID.incrementID(rs.getString(1));
 						
 					} else {
 						orderID = "OM001";
@@ -168,4 +164,5 @@ public class MedicineDAO {
 				
 				return orderID;
 		}
-*/
+
+}
