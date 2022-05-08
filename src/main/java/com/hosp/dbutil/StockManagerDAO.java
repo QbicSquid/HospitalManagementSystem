@@ -82,19 +82,24 @@ public class StockManagerDAO {
 		
 		return stockpileID;
 	}
-/*
-	
+
 	//update
 	public void updateStock(String medicineID, String stockpileID, int amount) {
+		System.out.println("Update stock function working");
+		System.out.println(medicineID);
+		System.out.println(stockpileID);
+		System.out.println(amount);
 		String query;
 		PreparedStatement preparedStatement;
-		ResultSet rs;
 		
-		query = "UPDATE stockpile SET amount = ? WHERE stockpileID=? AND medicineID = ?;";
+		query = "UPDATE stockpile SET amount = ? WHERE medicineID = ? AND stockpileID=?;";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(2, medicineID);
+			preparedStatement.setString(3, stockpileID);
 			preparedStatement.setInt(1, amount);
+			System.out.println(preparedStatement.toString());
 			preparedStatement.execute();
 			
 			
@@ -105,12 +110,13 @@ public class StockManagerDAO {
 		
 	}
 	
+	
 	//delete
 	public void deleteStock(String medicineID, String stockpileID) {
 		String  query;
 		PreparedStatement preparedStatement;
 		
-		query = "DELETE FROM stockpile WHERE stockpileID=? AND medicineID = ?;";
+		query = "DELETE FROM stockpile WHERE medicineID = ? AND stockpileID=?;";
 		
 		try {
 			preparedStatement = con.prepareStatement(query);
@@ -124,15 +130,9 @@ public class StockManagerDAO {
 		}
 		
 	}
-	*/
 	
 	//read
-<<<<<<< HEAD
-	public void readStock() {
-		String query;
-		PreparedStatement preparedStatement;
-		ResultSet rs;
-=======
+
 	public MedicineStock[] readStock() {
 		String query;
 		PreparedStatement preparedStatement;
@@ -140,15 +140,14 @@ public class StockManagerDAO {
 		MedicineStock[] medicineStock = null;
 		int size = 0, i = 0;
 		
->>>>>>> 60c03ed1b6da82c35b5a76d767b66c2857f6468a
 		query = "SELECT * FROM stockpile;";
 		
 		try {
 			System.out.println("readDAO is Working");
-<<<<<<< HEAD
+
 			preparedStatement = con.prepareCall(query);
 			preparedStatement.executeQuery();
-=======
+
 			preparedStatement = con.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -169,7 +168,6 @@ public class StockManagerDAO {
 				} while (resultSet.next());
 			}
 			
->>>>>>> 60c03ed1b6da82c35b5a76d767b66c2857f6468a
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

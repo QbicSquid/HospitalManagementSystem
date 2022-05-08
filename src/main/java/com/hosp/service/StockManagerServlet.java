@@ -46,6 +46,10 @@ public class StockManagerServlet extends HttpServlet {
 		System.out.println("post is working");
 		switch (action) {
 		
+			case "/addNewStock":
+				showNewForm(request, response);
+				break;
+				
 			case "/ManageStock":
 				
 				//insert
@@ -61,59 +65,48 @@ public class StockManagerServlet extends HttpServlet {
 				
 				//read
 				try{
-					System.out.println("read is working");
+					System.out.println("Read switch case is working");
 					readStock(request, response);
 				} catch(SQLException e) {
 					e.printStackTrace();
 				}
 				break;
 				
-		}
-				/*
-			//Insert
-			case "/ManageNewStock":
-	
-				try {
-					 insertStock(request, response);
+			case "/Edit":
+				System.out.println("Edit switch case is working");
+				try{
+					EditStock(request, response);
 				} catch(SQLException e) {
 					e.printStackTrace();
 				}
-				
-				break;
-				*/
-			/*
-			case "/delete":
-				try {
-					deleteStock(request, response);
-				} catch(SQLException e) {
-					e.printStackTrace();
-				}
-	
 				break;
 				
-				
-			case "/update":
+			case "/Update":
+				System.out.println("Update switch case is working");
 				try{
 					updateStock(request, response);
 				} catch(SQLException e) {
 					e.printStackTrace();
 				}
 				break;
-	
-			default:
-				try{
-					readStock(request, response);
+				
+			case "/delete":
+				try {
+					deleteStock(request, response);
 				} catch(SQLException e) {
 					e.printStackTrace();
 				}
+		
 				break;
-			}
-		*/
+				
+		}
 	}
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("Show New form is Working");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/stock.jsp");
+		dispatcher.forward(request, response);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		//request.getRequestDispatcher("/views/stock.jsp").forward(request, response);
 	}
@@ -130,23 +123,11 @@ public class StockManagerServlet extends HttpServlet {
 		String expDate = request.getParameter("expDate");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		
-		stockManager.readStock(stockpileID, medicineID, manuDate, expDate, amount);
+		stockManager.readStock();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/showStock.jsp");
 		dispatcher.forward(request, response);
 	}
 	
-	/*
-	//Read Stock info by ID
-	private void stockEditForm(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, ServletException, IOException {
-		int medicineID = Integer.parseInt(request.getParameter("medicineID"));
-		MedicineStock stockExist = stockManager.selectStock(medicineID);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("stockForm.jsp");
-		request.setAttribute("manageMedicineStock", stockExist);
-		dispatcher.forward(request, response);
-	
-	}
-	*/
 	
 	//Insert
 	private void insertStock(HttpServletRequest request, HttpServletResponse response) 
@@ -162,32 +143,55 @@ public class StockManagerServlet extends HttpServlet {
 		//response.sendRedirect("/views/stock.jsp");
 	}
 	
-	/*
+	
 	//Update
+	private void EditStock(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		System.out.println("EditStock is Working");
+		String medicineID = request.getParameter("medicineIDs");
+		System.out.println(medicineID);
+		String stockpileID = request.getParameter("stockpileIDs");
+		System.out.println(stockpileID);
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/updateStock.jsp");
+		dispatcher.forward(request, response);
+		//response.sendRedirect("/views/showStock.jsp");
+	}
+	
 	private void updateStock(HttpServletRequest request, HttpServletResponse response) 
-			throws SQLException, IOException {
+			throws SQLException, IOException, ServletException {
 		
 		System.out.println("UpdateStock is Working");
 		String medicineID = request.getParameter("medicineID");
+		System.out.println(medicineID);
 		String stockpileID = request.getParameter("stockpileID");
+		System.out.println(stockpileID);
 		int amount = Integer.parseInt(request.getParameter("amount"));
+		System.out.println(amount);
 		
 		stockManager.updateStock(medicineID, stockpileID, amount);
-		response.sendRedirect("stockList");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/showStock.jsp");
+		dispatcher.forward(request, response);
+		//response.sendRedirect("/views/showStock.jsp");
 	}
+
 	
-	//Delete
 	private void deleteStock(HttpServletRequest request, HttpServletResponse response) 
-			throws SQLException, IOException {
+			throws SQLException, IOException, ServletException {
 		
 		System.out.println("DeleteStock is Working");
-		String medicineID = request.getParameter("medicineID");
-		String stockpileID = request.getParameter("stockpileID");
+		String medicineID = request.getParameter("medicineIDs");
+		System.out.println(medicineID);
+		String stockpileID = request.getParameter("stockpileIDs");
+		System.out.println(stockpileID);
 		
 		stockManager.deleteStock(medicineID, stockpileID);
-		response.sendRedirect("stockList");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/showStock.jsp");
+		dispatcher.forward(request, response);
 	
-	}
-	*/
+	}	
+
 
 }

@@ -8,6 +8,7 @@ public class MedicineStock {
 	private int amount;
 	
 	public MedicineStock() {
+		
 	}
 	
 	public MedicineStock(String medicineID, String stockpileID, String manuDate, String expDate, int amount) {

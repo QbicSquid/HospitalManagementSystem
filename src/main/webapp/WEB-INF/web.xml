@@ -30,5 +30,19 @@
     <url-pattern>/StockManagerServlet</url-pattern>
     <url-pattern>/ManageStock</url-pattern>
     <url-pattern>/stockList</url-pattern>
+    <url-pattern>/Edit</url-pattern>
+    <url-pattern>/Update</url-pattern>
+    <url-pattern>/delete</url-pattern>
+    <url-pattern>/addNewStock</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>placeOrderServlet</display-name>
+    <servlet-name>placeOrderServlet</servlet-name>
+    <servlet-class>com.hosp.service.placeOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>placeOrderServlet</servlet-name>
+    <url-pattern>/placeOrderServlet</url-pattern>
   </servlet-mapping>
 </web-app>
