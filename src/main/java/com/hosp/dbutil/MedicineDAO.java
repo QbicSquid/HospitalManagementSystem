@@ -61,7 +61,7 @@ public class MedicineDAO {
 		
 		
 	}
-	
+	/*
 	//inserting values
 	
 	public static boolean insertmedicine() throws SQLException{
@@ -98,6 +98,6 @@ public class MedicineDAO {
 		
 	}
 	}
-
+*/
 }
 

@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <table>
+<table>
 	<tr>
 		<td>id</td>
 		<td>${ medicineQty.id }</td>
@@ -26,17 +26,7 @@
 	</tr>
 	
 	
- </table>
-
-
-
-
-
-
-
-
-
-
+</table>
 
 </body>
 </html>
