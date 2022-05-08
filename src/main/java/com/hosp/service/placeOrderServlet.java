@@ -24,10 +24,6 @@ public class placeOrderServlet extends HttpServlet {
 	}
 	
 	
-	
-	
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//response.setContentType("text/html");
@@ -57,5 +53,6 @@ public class placeOrderServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/views/searchMedicine.jsp").forward(request, response);
 	}
+	
 
 }

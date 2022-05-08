@@ -20,33 +20,34 @@
 <table>
 	<tr>
 		<td>id</td>
-		<td>${ medicineQty.id }</td>
+		<td><input type="text" name="medicineID" class="txt-box" value= "${ medicineQty.id }"/></td>
 	</tr>
 	<tr>
 		<td>name</td>
-		<td>${ medicineQty.name }</td>
+		<td><input type ="text" name="medicineName" class="txt-box" value = "${ medicineQty.name }"/></td>
 	</tr>
 	<tr>
 		<td>cost</td>
-		<td>${ medicineQty.cost }</td>
+		<td><input type ="text" name="medicineCost" class="txt-box" value = "${ medicineQty.cost }"/></td>
 	</tr>
 	<tr>
 		<td>description</td>
-		<td>${ medicineQty.description }</td>
+		<td><input type ="text" name="medicineDes" class="txt-box" value = "${ medicineQty.description }"/></td>
 	</tr>
 	<tr>
 		<td>Total price</td>
-		<td>${ medicineQty.totalPrice }</td>
+		<td><input type ="text" name="medicinePrice" class="txt-box" value = "${ medicineQty.totalPrice }"/></td>
 	</tr>
 	
 	
 </table>
-<form action = "<%=request.getContextPath()%>/cartServlet" method = "post">
-<input type="submit" name="add" value="order">
 
-</form>
+<% String id="Customer";%>
+    <form action="<%=request.getContextPath()%>/views/cart.jsp" method="post">
+    <%session.setAttribute("id", id);%>
+    
+        <input type="submit" value="order">
+    </form>
 
-
- 
 </body>
 </html>

@@ -24,7 +24,7 @@ public class Medicine implements Serializable {
 	
 
 
-	public String getId() {
+	public  String getId() {
 		return id;
 	}
 	public String getName() {
@@ -48,4 +48,7 @@ public class Medicine implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	
 }

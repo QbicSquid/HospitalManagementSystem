@@ -2,10 +2,10 @@ package com.hosp.model;
 
 public class OrderedMedicine {
 	private String orderID;
-	private int medNo;
-	private String medicineID;
+	private int medNo;//kiyanne mokkda
+	private String medicineID; //medicine wala id eka
 	private int amount;
-	private String dosage;
+	private String dosage;// koomada daanne
 	
 	public String getOrderID() {
 		return orderID;

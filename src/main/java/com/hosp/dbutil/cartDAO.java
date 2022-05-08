@@ -1,4 +1,4 @@
-package com.hosp.dbutil;
+/*package com.hosp.dbutil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,3 +44,4 @@ public class cartDAO {
 
 }
 }
+*/

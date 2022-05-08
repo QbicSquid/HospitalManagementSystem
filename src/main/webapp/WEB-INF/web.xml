@@ -59,4 +59,34 @@
     <servlet-name>cartServlet</servlet-name>
     <url-pattern>/cartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addcartServlet</display-name>
+    <servlet-name>addcartServlet</servlet-name>
+    <servlet-class>com.hosp.service.cartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addcartServlet</servlet-name>
+    <url-pattern>/addcartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addtoCartServlet</display-name>
+    <servlet-name>addtoCartServlet</servlet-name>
+    <servlet-class>com.hosp.service.addtocartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addtoCartServlet</servlet-name>
+    <url-pattern>/addtoCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertMedicineServlet</display-name>
+    <servlet-name>insertMedicineServlet</servlet-name>
+    <servlet-class>com.hosp.service.insertMedicineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertMedicineServlet</servlet-name>
+    <url-pattern>/insertMedicineServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

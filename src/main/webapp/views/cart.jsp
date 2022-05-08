@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+   
   
  <%@ page import ="java.util.ArrayList"%>
  <%@ page import ="java.util.List"%>
@@ -11,22 +11,38 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%String id = session.getAttribute("id").toString(); %>
+Hello<%=id%>
+
 <table>
 	<tr>
 		<td>id</td>
-		<td>${ medicineQty.id }</td>
+		
+		<td><input type="text" name="medicineID" class="txt-box" value="<%= request.getParameter("medicineID")%>"/></td>
+		
 	</tr>
 	<tr>
 		<td>name</td>
-		<td>${ medicineQty.name }</td>
+		<td><input type="text" name="medicineName" class="txt-box" value="<%= request.getParameter("medicineName")%>"/></td>
 	</tr>
 	<tr>
 		<td>Total price</td>
-		<td>${ medicineQty.totalPrice }</td>
+		<td><input type="text" name="medicinePrice" class="txt-box" value="<%= request.getParameter("medicinePrice")%>"/></td>
 	</tr>
 	
 	
 </table>
+
+<form action="addtocart" method="post">
+<button type="submit"   class="btn btn-warning" name="insert" value="#">Place Order</button>
+
+<button type="submit"   class="btn btn-warning" name="delete" value="#">Delete Order</button>
+
+<button type="submit"   class="btn btn-warning" name="update" value="#">Update Order</button>
+
+<button type="submit"  class="btn btn-warning" name="order" value="#">Add Medicine</button>
+</form>
 
 </body>
 </html>
