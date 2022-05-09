@@ -25,5 +25,6 @@
     <url-pattern>/AppointmentPayConfirm</url-pattern>
     <url-pattern>/UpdateAppointment</url-pattern>
     <url-pattern>/CancelAppointment</url-pattern>
+    <url-pattern>/AppointmentPayUpdated</url-pattern>
   </servlet-mapping>
 </web-app>

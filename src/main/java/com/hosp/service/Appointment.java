@@ -49,8 +49,13 @@ public class Appointment extends HttpServlet {
 			payConfirm(request, response);
 			break;
 		case "/UpdateAppointment":
+			updateAppointment(request, response);
+			break;
+		case "/AppointmentPayUpdated":
+			payUpdated(request, response);
 			break;
 		case "/CancelAppointment":
+			cancelAppointment(request, response);
 			break;
 		}
 	}
@@ -137,10 +142,39 @@ public class Appointment extends HttpServlet {
 	
 	private void updateAppointment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DoctorSchedule doctorSchedule = new DoctorSchedule();
+		String appointmentID = request.getParameter("appointmentID");
 		
-		doctorSchedule.setDoctorID();
-		doctorSchedule.setDayOfWeek();
-		doctorSchedule.setStartTime();
-		doctorSchedule.setEndTime();
+		doctorSchedule.setDoctorID(request.getParameter("doctorID"));
+		doctorSchedule.setDayOfWeek(request.getParameter("dayOfWeek"));
+		doctorSchedule.setStartTime(request.getParameter("startTime"));
+		doctorSchedule.setEndTime(request.getParameter("endTime"));
+		
+		request.setAttribute("appointmentID", appointmentID);
+		request.setAttribute("schedule", doctorSchedule);
+		request.getRequestDispatcher("/views/appointment/updateAppointment.jsp").forward(request, response);
+	}
+	
+	private void payUpdated(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AppointmentDAO appointmentDAO = AppointmentDAO.getAppointmentDAO();
+		DoctorSchedule doctorSchedule = new DoctorSchedule();
+		String appointmentID = request.getParameter("appointmentID");
+		
+		doctorSchedule.setDayOfWeek(request.getParameter("doctorID"));
+		doctorSchedule.setDoctorID(request.getParameter("dayOfWeek"));
+		doctorSchedule.setStartTime(request.getParameter("startTime"));
+		doctorSchedule.setEndTime(request.getParameter("endTime"));
+		
+		String date = request.getParameter("date");
+		String time = request.getParameter("startTime");
+		String date_time = date + " " + time;
+		System.out.println(date_time); // debug line
+		String remarks = request.getParameter("remarks");
+		String doctorOrLabID = request.getParameter("doctorID");
+		
+		appointmentDAO.updateAppointment(appointmentID, date_time, remarks);
+		
+		request.setAttribute("appointmentID", appointmentID);
+		request.setAttribute("schedule", doctorSchedule);
+		request.getRequestDispatcher("/views/appointment/confirmDocPayment.jsp").forward(request, response);
 	}
 }
