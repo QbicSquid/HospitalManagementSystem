@@ -21,16 +21,20 @@ import com.hosp.commonutil.EditID;
 public class MedicineDAO {
 	private Connection con;
 	
-	public Medicine getMedicine(String name) {
-		
-		Medicine medicine= new Medicine();
-		
-		ResultSet rs;
-	
-		
-		try {			
+	public MedicineDAO() {
+		try {
 			con = Conn.getDBConnection();
-			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public Medicine getMedicine(String name) {
+		Medicine medicine= new Medicine();
+		ResultSet rs;
+		
+		try {						
 			String query = "SELECT * " + 
 					"FROM medicine " +
 					"WHERE name = ?;";

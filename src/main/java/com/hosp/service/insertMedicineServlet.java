@@ -50,10 +50,15 @@ public class insertMedicineServlet extends HttpServlet{
 		System.out.println("insertStock is Working");
 		
 		
-		int medNo = (int) Double.parseDouble(request.getParameter("medicinePrice"));//debug conversion medicine price is a double medNo is integer
+//		int medNo = (int) Double.parseDouble(request.getParameter("medicinePrice"));//debug conversion medicine price is a double medNo is integer
+		int medNo = 1;
+		System.out.println("debug line 1");
 		String medicineID = request.getParameter("medicineID");
-		int amount = Integer.parseInt(request.getParameter("medicinePrice"));
+		System.out.println("debug line 2");
+		int amount = Integer.parseInt(request.getParameter("quantity"));
+		System.out.println("debug line 3");
 		String dosage = request.getParameter("medicineDes");
+		System.out.println("debug line 4");
 		
 		System.out.println("debug line ");
 		getMedDAO.insertOrderedMedicine(medNo, medicineID, amount, dosage); //calling the method to save the new stock to DB

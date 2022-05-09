@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
    
   
- <%@page import="com.hosp.model.OrderedMedicine, com.hosp.dbutil.MedicineDAO" %>
+<%@page import="com.hosp.model.OrderedMedicine, com.hosp.dbutil.MedicineDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,10 +45,11 @@ Hello<%=id%>
 
 <form action="<%=request.getContextPath()%>/insertMedicineServlet" method="post">
 
-<input type="hidden" name="medicineID" value=${ medicineQty.id } /> //insert medicine servlet ekata me data pass wennone string widiytaa
-<input type="hidden" name="medicineName" value=${ medicineQty.name } />
-<input type="hidden" name="medicinePrice" value=${ medicineQty.totalPrice } />
-<input type="hidden" name="medicineDes" value=${ medicineQty.description }/>
+<input type="hidden" name="medicineID" value="<%= request.getParameter("medicineID")%>" />
+<input type="hidden" name="medicineName" value="<%= request.getParameter("medicineName")%>" />
+<input type="hidden" name="quantity" value="<%= request.getParameter("medicineQty")%>" />
+<input type="hidden" name="medicinePrice" value="<%= request.getParameter("medicinePrice")%>" />
+<input type="hidden" name="medicineDes" value="<%= request.getParameter("dosage")%>"/>
 
 <button type="submit"   class="btn btn-warning" name="insert" value="submit">Place Order</button>
 </form>
