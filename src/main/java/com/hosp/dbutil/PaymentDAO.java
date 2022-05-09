@@ -10,14 +10,23 @@ import com.hosp.commonutil.InvalidIDException;
 
 public class PaymentDAO {
 	private Connection con;
+	private static PaymentDAO paymentDAO;
 	
-	public PaymentDAO() {
+	private PaymentDAO() {
 		try {
 			con = Conn.getDBConnection();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	public static PaymentDAO getPaymentDAO() {
+		if (paymentDAO == null) {
+			paymentDAO = new PaymentDAO();
+		}
+		
+		return paymentDAO;
 	}
 	
 	public String insertPayment(String recieptID, String method) {

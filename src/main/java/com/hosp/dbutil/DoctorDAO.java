@@ -10,14 +10,23 @@ import com.hosp.model.Doctor;
 
 public class DoctorDAO {
 	private Connection con;
+	private static DoctorDAO doctorDAO;
 
-	public DoctorDAO() {
+	private DoctorDAO() {
 		try {
 			con = Conn.getDBConnection();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	public static DoctorDAO getDoctorDao() {
+		if (doctorDAO == null) {
+			doctorDAO = new DoctorDAO();
+		}
+		
+		return doctorDAO;
 	}
 	
 	public DoctorSchedule[] getSchedule(String doctorID) {

@@ -1,6 +1,7 @@
 package com.hosp.dbutil;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,14 +12,23 @@ import com.hosp.commonutil.InvalidIDException;
 
 public class AppointmentDAO {
 	private Connection con;
+	private static AppointmentDAO appointmentDAO;
 
-	public AppointmentDAO() {
+	private AppointmentDAO() {
 		try {
 			con = Conn.getDBConnection();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	public static AppointmentDAO getAppointmentDAO() {
+		if (appointmentDAO == null) {
+			appointmentDAO = new AppointmentDAO();
+		}
+		
+		return appointmentDAO;
 	}
 	
 	public String insertDocAccpointmnet (String date_time, String remarks, String doctorID) {
