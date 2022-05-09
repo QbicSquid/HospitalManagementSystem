@@ -36,7 +36,7 @@ public class deleteOrderServlet extends HttpServlet {
 		
 		switch(servletPath) {
 		
-		case "/insertMedicineServlet":
+		case "/deleteOrderServlet":
 			try{
 				deleteOrder(request, response);
 				System.out.println("order success ");
@@ -52,12 +52,12 @@ public class deleteOrderServlet extends HttpServlet {
 				throws SQLException, IOException, ServletException {
 			
 				System.out.println("DeleteStock is Working");
-				String medicineID = request.getParameter("medicineIDs");
-				System.out.println(medicineID);
-				String stockpileID = request.getParameter("stockpileIDs");
-				System.out.println(stockpileID);
-				getMedDAO.deleteOrder(medicineID, stockpileID);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/showStock.jsp");
+				String custID = request.getParameter("custID");
+				System.out.println(custID);
+				String paymentID = request.getParameter("paymentID");
+				System.out.println(paymentID);
+				getMedDAO.deleteOrder(custID, paymentID);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/cart.jsp");
 				dispatcher.forward(request, response);
 				}
 }

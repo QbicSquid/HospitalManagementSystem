@@ -46,15 +46,16 @@ public class updateMedicineServlet extends HttpServlet {
 		private void updateMedicine(HttpServletRequest request, HttpServletResponse response)
 				throws SQLException, IOException, ServletException {
 			
-				System.out.println("EditStock is Working");
-				//String medicineID = request.getParameter("medicineIDs");
-				//System.out.println(medicineID);
-				//String stockpileID = request.getParameter("stockpileIDs");
-				//System.out.println(stockpileID);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/searchMedicine.jsp");
+				System.out.println("EditMed is Working");
+				String custID = request.getParameter("custID");
+				System.out.println(custID);
+				String paymentID = request.getParameter("paymentID");
+				System.out.println(paymentID);
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/cart.jsp");
 				dispatcher.forward(request, response);
 				//response.sendRedirect("/views/showStock.jsp");
 				}
+	
 }
-
 

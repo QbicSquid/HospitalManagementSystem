@@ -4,12 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style><%@include file="/views/css/mystyle.css"%></style>
+
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Helloooooo</h1>
-	<p>adkfad  ajdhvac j</p>
-	<h1>testing 2</h1>
+	<h1>Order success</h1>
+<form action="<%=request.getContextPath()%>/deleteOrderServlet" method="post">
+<button type="submit"   class="btn btn-warning" name="delete" value="submit">Delete Order</button>
+</form>
+
+<form action="<%=request.getContextPath()%>/updateMedicineServlet" method="post">
+<button type="submit"   class="btn btn-warning" name="update" onclick="alert('Update success!')" value="submit">Update Order</button>
+</form>
+	
 </body>
 </html>

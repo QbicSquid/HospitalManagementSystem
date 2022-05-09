@@ -69,24 +69,27 @@ public class MedicineDAO {
 	
 	//insertdata
 
-	public String insertOrderedMedicine(int medNo, String medicineID, int amount, String dosage) {	
+	public String insertmedicineOrder(String deliveryAddress, String deliveryState, String Date, String custID, String paymentID) {	
 		
 		
-		String orderID, query;
+		String id, query;
 		PreparedStatement preparedStatement;
 				
-		orderID = getNextorderID();
-				query = "INSERT INTO OrderedMedicine VALUES (?, ?, ?, ?, ?)";
+		id = getNextid();
+				query = "INSERT INTO medicineOrder VALUES (?, ?, ?, ?, ?, ?)";
 				
 				try {
 					System.out.println("insertDAO is Working");
 					preparedStatement = con.prepareStatement(query);
-					preparedStatement.setString(1, orderID);
-					preparedStatement.setInt(2, medNo);
-					System.out.println(""+ orderID + " " + orderID);
-					preparedStatement.setString(3, medicineID);
-					preparedStatement.setInt(4, amount);
-					preparedStatement.setString(5, dosage);
+					preparedStatement.setString(1, id);
+					preparedStatement.setString(2, deliveryAddress);
+					
+					System.out.println(""+ id + " " + id);
+					
+					preparedStatement.setString(3, deliveryState);
+					preparedStatement.setString(4, Date);
+					preparedStatement.setString(5, custID);
+					preparedStatement.setString(6, paymentID);
 					
 					preparedStatement.execute();
 					
@@ -95,33 +98,35 @@ public class MedicineDAO {
 					e.printStackTrace();
 				} 
 				System.out.println(" return Working");
-				return orderID;
+				
+				return id;
 		}
 			
 		
 
-		private String getNextorderID() {
-				String orderID = "";
+		private String getNextid() {
+				String id = "";
 				String query;
 				PreparedStatement preparedStatement;
-				ResultSet rs;
+				ResultSet rs1;
 				
-				query = "SELECT orderID "
-						+ "FROM OrderedMedicine "
-						+ "ORDER BY orderID DESC "
+				query = "SELECT id "
+						+ "FROM medicineOrder "
+						+ "ORDER BY id DESC "
 						+ "LIMIT 1;";
 				
 				try {
 					System.out.println("Nextorder is Working");
 				    preparedStatement  = con.prepareStatement(query);
-					rs = preparedStatement.executeQuery();
+					rs1 = preparedStatement.executeQuery();
 					
-					if (rs.next()) {
-						orderID= EditID.incrementID(rs.getString(1));
+					if (rs1.next()) {
+						
+						id= EditID.incrementID(rs1.getString(1));
 						
 					} else {
-						orderID = "OM001";
-						System.out.println("incStock is Working");
+						id = "MO001";
+						System.out.println("incStock is Working");          
 					}	
 					
 				} catch (SQLException | InvalidIDException | NumberFormatException e) {
@@ -129,25 +134,25 @@ public class MedicineDAO {
 					e.printStackTrace();
 				}
 				
-				return orderID;
+				return id;
 		}
 		
 		//update
-		public void updateMedicine(int amount) {
-			System.out.println("Update stock function working");
-			System.out.println(amount);
-			//System.out.println(stockpileID);
-			//System.out.println(amount);
+		public void updateMedicine(String custID, String paymentID, String deliveryAddress) {
+			System.out.println("Update med function working");
+			System.out.println(custID);
+			System.out.println(paymentID);
+			System.out.println(deliveryAddress);
 			String query;
 			PreparedStatement preparedStatement;
 
-			query = "UPDATE OrderedMedicine SET amount = ? WHERE medicineID = ? AND stockpileID=?;";
+			query = "UPDATE medicineOrder SET amount = ? WHERE custID = ? AND paymentID=?;";
 
 			try {
 			preparedStatement = con.prepareStatement(query);
-			//preparedStatement.setString(2, medicineID);
-			//preparedStatement.setString(3, stockpileID);
-			preparedStatement.setInt(1, amount);
+			preparedStatement.setString(2, custID);
+			preparedStatement.setString(3, paymentID);
+			preparedStatement.setString(1, deliveryAddress);
 			System.out.println(preparedStatement.toString());
 			preparedStatement.execute();
 
@@ -158,17 +163,18 @@ public class MedicineDAO {
 			}
 
 			}
+
 		//delete
-		public void deleteOrder(String medicineID, String stockpileID) {
+		public void deleteOrder(String custID, String paymentID) {
 			String query;
 			PreparedStatement preparedStatement;
 
-			query = "DELETE FROM OrderedMedicine WHERE medicineID = ? AND stockpileID=?;";
+			query = "DELETE FROM medicineOrder WHERE custID = ? AND paymentID=?;";
 
 			try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1,medicineID);
-			preparedStatement.setString(2,stockpileID);
+			preparedStatement.setString(1,custID);
+			preparedStatement.setString(2,paymentID);
 			preparedStatement.execute();
 
 			} catch (SQLException e) {

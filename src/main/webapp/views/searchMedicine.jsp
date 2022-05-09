@@ -14,6 +14,7 @@
 <form action="<%=request.getContextPath()%>/placeOrderServlet" method="post">
 	<input type="text" name="medname" />
 	<input type="text" name="quantity" />
+	
 	<input type="submit" name="submit" value="submit">
 </form>
 
@@ -49,13 +50,12 @@
 <% String id="Customer";%>
     <form action="<%=request.getContextPath()%>/views/cart.jsp" method="post">
     <%session.setAttribute("id", id);%>
-    	
+    	 
     	<input type="hidden" name="medicineID" value=${ medicineQty.id } />
     	<input type="hidden" name="medicineName" value=${ medicineQty.name } />
     	<input type="hidden" name="medicineQty" value=${ medicineQty.quantity } />
-    	<input type="hidden" name="medicinePrice" value=${ medicineQty.totalPrice } />
-    	    	
-    	<textarea rows="5" cols="100" name="dosage" maxlength="500"></textarea><br/>
+    	<input type="hidden" name="medicinePrice" value=${ medicineQty.totalPrice } />	
+    	
     	
         <input type="submit" value="order">
     </form>

@@ -89,6 +89,7 @@
   <servlet-mapping>
     <servlet-name>insertMedicineServlet</servlet-name>
     <url-pattern>/insertMedicineServlet</url-pattern>
+   
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -109,5 +110,15 @@
   <servlet-mapping>
     <servlet-name>deleteOrderServlet</servlet-name>
     <url-pattern>/deleteOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>medicineOrderServlet</display-name>
+    <servlet-name>medicineOrderServlet</servlet-name>
+    <servlet-class>com.hosp.service.medicineOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medicineOrderServlet</servlet-name>
+    <url-pattern>/medicineOrderServlet</url-pattern>
   </servlet-mapping>
 </web-app>
