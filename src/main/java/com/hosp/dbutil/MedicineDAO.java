@@ -62,49 +62,12 @@ public class MedicineDAO {
 		
 		
 	}
-	/*
-	//inserting values
 	
-	public static boolean insertmedicine() throws SQLException{
-		
-		Connection con;
-		ResultSet rs1;
-		con = Conn.getDBConnection();
-		PreparedStatement preparedstatement = con.prepareStatement("INSERT INTO orderedmedicine VALUES "+" (?,?,?,?,?)");
-		
-		try {
-			preparedstatement.setSring(1, orderID());
-			preparedstatement.setInt(2, medNo());
-			preparedstatement.setString(3, medicineID());
-			preparedstatement.setInt(4, amount());
-			preparedstatement.setString(5, dosage());
-			
-		
-		long rs1=preparedstatement.executeLargeUpdate();
-		
-		if (rs1>0) {
-			isSuccess=true;
-		}
-		
-		else {
-			isSuccess=false;
-		}
-		
-		
-		
-	}catch(SQLException e) {
-		
-	}
-		return isSuccess;
-		
-	}
-	}
-*/
+	//insertdata
 
-
-
-
-	public String insertOrderedMedicine(int medNo, String medicineID, int amount, String dosage) {				
+	public String insertOrderedMedicine(int medNo, String medicineID, int amount, String dosage) {	
+		
+		
 		String orderID, query;
 		PreparedStatement preparedStatement;
 				
@@ -164,5 +127,51 @@ public class MedicineDAO {
 				
 				return orderID;
 		}
+		
+		//update
+		public void updateMedicine(int amount) {
+			System.out.println("Update stock function working");
+			System.out.println(amount);
+			//System.out.println(stockpileID);
+			//System.out.println(amount);
+			String query;
+			PreparedStatement preparedStatement;
+
+			query = "UPDATE OrderedMedicine SET amount = ? WHERE medicineID = ? AND stockpileID=?;";
+
+			try {
+			preparedStatement = con.prepareStatement(query);
+			//preparedStatement.setString(2, medicineID);
+			//preparedStatement.setString(3, stockpileID);
+			preparedStatement.setInt(1, amount);
+			System.out.println(preparedStatement.toString());
+			preparedStatement.execute();
+
+
+			} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			}
+
+			}
+		//delete
+		public void deleteOrder(String medicineID, String stockpileID) {
+			String query;
+			PreparedStatement preparedStatement;
+
+			query = "DELETE FROM OrderedMedicine WHERE medicineID = ? AND stockpileID=?;";
+
+			try {
+			preparedStatement = con.prepareStatement(query);
+			preparedStatement.setString(1,medicineID);
+			preparedStatement.setString(2,stockpileID);
+			preparedStatement.execute();
+
+			} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			}
+
+			}
 
 }

@@ -29,7 +29,7 @@ public class addtocartServlet extends HttpServlet {
 		//String name =request.getParameter("name");
 		//request.getSession().setAttribute(id, ${ medicineQty.id });
 		
-		request.getRequestDispatcher("/views/cart.jsp").forward(request, response);
+		//request.getRequestDispatcher("/views/cart.jsp").forward(request, response);
 		
 	}
 

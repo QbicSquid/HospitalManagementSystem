@@ -21,10 +21,7 @@ public class insertMedicineServlet extends HttpServlet{
 			super();
 			this.getMedDAO = new MedicineDAO();
 	}
-	
-	
-
-	
+		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -38,6 +35,7 @@ public class insertMedicineServlet extends HttpServlet{
 		case "/insertMedicineServlet":
 			try{
 				insertOrderedMedicine(request, response);
+				System.out.println("order success ");
 				} 
 			catch(SQLException e) {
 				e.printStackTrace();
@@ -49,14 +47,15 @@ public class insertMedicineServlet extends HttpServlet{
 	private void insertOrderedMedicine(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException{
 		
-		//System.out.println("insertStock is Working");
+		System.out.println("insertStock is Working");
 		
 		
-		int medNo = Integer.parseInt(request.getParameter("medNo"));
+		int medNo = (int) Double.parseDouble(request.getParameter("medicinePrice"));//debug conversion medicine price is a double medNo is integer
 		String medicineID = request.getParameter("medicineID");
-		int amount = Integer.parseInt(request.getParameter("amount"));
-		String dosage = request.getParameter("dosage");
+		int amount = Integer.parseInt(request.getParameter("medicinePrice"));
+		String dosage = request.getParameter("medicineDes");
 		
+		System.out.println("debug line ");
 		getMedDAO.insertOrderedMedicine(medNo, medicineID, amount, dosage); //calling the method to save the new stock to DB
 		//response.sendRedirect("/views/stock.jsp");
 	

@@ -90,4 +90,24 @@
     <servlet-name>insertMedicineServlet</servlet-name>
     <url-pattern>/insertMedicineServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>updateMedicineServlet</display-name>
+    <servlet-name>updateMedicineServlet</servlet-name>
+    <servlet-class>com.hosp.service.updateMedicineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateMedicineServlet</servlet-name>
+    <url-pattern>/updateMedicineServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deleteOrderServlet</display-name>
+    <servlet-name>deleteOrderServlet</servlet-name>
+    <servlet-class>com.hosp.service.deleteOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteOrderServlet</servlet-name>
+    <url-pattern>/deleteOrderServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
