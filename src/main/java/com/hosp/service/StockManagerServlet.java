@@ -104,7 +104,7 @@ public class StockManagerServlet extends HttpServlet {
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Show New form is Working");
+		System.out.println("Show New form is Working");//debug
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/stock.jsp");
 		dispatcher.forward(request, response);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -116,7 +116,7 @@ public class StockManagerServlet extends HttpServlet {
 	private void readStock(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		System.out.println("readStock is Working");
+		System.out.println("readStock is Working"); //debug
 		String stockpileID = request.getParameter("stockpileID");
 		String medicineID = request.getParameter("medicineID");
 		String manuDate = request.getParameter("manuDate");
@@ -131,16 +131,23 @@ public class StockManagerServlet extends HttpServlet {
 	
 	//Insert
 	private void insertStock(HttpServletRequest request, HttpServletResponse response) 
-			throws SQLException, IOException {
+			throws SQLException, IOException,ServletException {
 		
-		System.out.println("insertStock is Working");
+		System.out.println("insertStock is Working");//debug
 		String medicineID = request.getParameter("medicineID");
 		String manuDate = request.getParameter("manuDate");
 		String expDate = request.getParameter("expDate");
 		int amount = Integer.parseInt(request.getParameter("amount"));
+		System.out.println(medicineID);
+		System.out.println(manuDate);
+		System.out.println(expDate);
+		System.out.println(amount);
+		
 		
 		stockManager.insertStock(medicineID, manuDate, expDate, amount); //calling the method to save the new stock to DB
 		//response.sendRedirect("/views/stock.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/showStock.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 	
@@ -148,7 +155,7 @@ public class StockManagerServlet extends HttpServlet {
 	private void EditStock(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		System.out.println("EditStock is Working");
+		System.out.println("EditStock is Working"); //debug
 		String medicineID = request.getParameter("medicineIDs");
 		System.out.println(medicineID);
 		String stockpileID = request.getParameter("stockpileIDs");
@@ -163,7 +170,7 @@ public class StockManagerServlet extends HttpServlet {
 	private void updateStock(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		System.out.println("UpdateStock is Working");
+		System.out.println("UpdateStock is Working"); //debug
 		String medicineID = request.getParameter("medicineID");
 		System.out.println(medicineID);
 		String stockpileID = request.getParameter("stockpileID");
@@ -177,11 +184,11 @@ public class StockManagerServlet extends HttpServlet {
 		//response.sendRedirect("/views/showStock.jsp");
 	}
 
-	
+	//delete
 	private void deleteStock(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		System.out.println("DeleteStock is Working");
+		System.out.println("DeleteStock is Working");//debug
 		String medicineID = request.getParameter("medicineIDs");
 		System.out.println(medicineID);
 		String stockpileID = request.getParameter("stockpileIDs");

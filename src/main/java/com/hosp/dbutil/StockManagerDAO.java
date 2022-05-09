@@ -25,6 +25,7 @@ public class StockManagerDAO {
 	
 	//insert
 	public String insertStock(String medicineID, String manuDate, String expDate, int amount) {
+		System.out.println("insertDAO is Working");
 		String stockpileID, query;
 		PreparedStatement preparedStatement;
 		
@@ -32,11 +33,11 @@ public class StockManagerDAO {
 		query = "INSERT INTO stockpile VALUES (?, ?, ?, ?, ?)";
 		
 		try {
-			System.out.println("insertDAO is Working");
+			System.out.println("insertDAO is Working"); //debug
 			preparedStatement = con.prepareStatement(query);
 			preparedStatement.setString(1, medicineID);
 			preparedStatement.setString(2, stockpileID);
-			System.out.println(""+ medicineID + " " + stockpileID);
+			System.out.println(""+ medicineID + " " + stockpileID); //debug
 			preparedStatement.setString(3, manuDate);
 			preparedStatement.setString(4, expDate);
 			preparedStatement.setInt(5, amount);
@@ -47,7 +48,7 @@ public class StockManagerDAO {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} 
-		System.out.println(" return Working");
+		System.out.println(" return Working"); //debug
 		return stockpileID;
 	}
 	
@@ -63,7 +64,7 @@ public class StockManagerDAO {
 				+ "LIMIT 1;";
 		
 		try {
-			System.out.println("NextStock is Working");
+			System.out.println("NextStock is Working");//debug
 			preparedStatement = con.prepareStatement(query);
 			rs = preparedStatement.executeQuery();
 			
@@ -72,7 +73,7 @@ public class StockManagerDAO {
 				
 			} else {
 				stockpileID = "S_001";
-				System.out.println("incStock is Working");
+				System.out.println("incStock is Working"); //debug
 			}	
 			
 		} catch (SQLException | InvalidIDException | NumberFormatException e) {
@@ -85,7 +86,7 @@ public class StockManagerDAO {
 
 	//update
 	public void updateStock(String medicineID, String stockpileID, int amount) {
-		System.out.println("Update stock function working");
+		System.out.println("Update stock function working");//debug
 		System.out.println(medicineID);
 		System.out.println(stockpileID);
 		System.out.println(amount);
@@ -143,7 +144,7 @@ public class StockManagerDAO {
 		query = "SELECT * FROM stockpile;";
 		
 		try {
-			System.out.println("readDAO is Working");
+			System.out.println("readDAO is Working"); //debug
 
 			preparedStatement = con.prepareCall(query);
 			preparedStatement.executeQuery();
