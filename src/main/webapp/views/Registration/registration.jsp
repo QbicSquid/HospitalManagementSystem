@@ -4,38 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<style><%@include file="/views/css/login.css"%></style>
+<title>Registration</title>
 </head>
 <body>
- <div align="center">
-  <h1> Registration Form</h1>
+ <div class="container">
+  <h1 class="titletxt"> Registration Form</h1>
   <form action="<%=request.getContextPath()%>/RegistrationServlet" method="post">
-   <table style="width: 80%">
+   <table>
     <tr>
-     <td>UserName</td>
+     <td><label>UserName</label></td>
      <td><input type="text" name="username" placeholder="Enter your Username" required></td>
     </tr>
     <tr>
-     <td>Password</td>
+     <td><label>Password</label></td>
      <td><input type="password" name="password" placeholder="Enter your Password" required></td>
     </tr>
     <tr>
-     <td>First Name</td>
+     <td><label>First Name</label></td>
      <td><input type="text" name="firstName" placeholder="Enter your First Name" required></td>
     </tr>
     <tr>
-     <td>Middle Name</td>
+     <td><label>Middle Name</label></td>
      <td><input type="text" name="middleName" placeholder="Enter your Middle Name" required></td>
     </tr>
     <tr>
-     <td>Last Name</td>
+     <td><label>Last Name</label></td>
      <td><input type="text" name="lastName" placeholder="Enter your Last Name" required></td>
     </tr>
     
  
    </table>
-   <input type="submit" value="Submit" />
+   <input type="submit" value="Submit" class="btn"/><br>
   </form>
+  <a href ="/HospitalManagementSystem/LoginServlet"><h3>Log In</h3></a>
  </div>
 
 </body>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <%@page import="com.hosp.model.*" %>
 <%@page import="java.util.List" %>
 <!DOCTYPE html>
@@ -14,11 +14,14 @@
 
 <%	User user = (User)session.getAttribute("user");
 	Customer customer = (Customer) session.getAttribute("customer");
-	List<MedicalCondition> medicalConditions=(List<MedicalCondition>) request.getAttribute("medicalCondition");
+	List<MedicalCondition> medicalConditions=(List<MedicalCondition>)request.getAttribute("medicalCondition");
 	
 %>
-
+<div class="pageContainer">
 	<form action="<%=request.getContextPath()%>/UpdateCusInfoServlet" method="post">
+	<h1 id="heading">Customer Profile</h1>
+	<h2 class="heading2"><%=user.getUsername()%></h2>
+	<h2 class="heading2"><%=user.getId() %></h2>
 	<table>
 			<tr>
 				<td>Customer ID</td>
@@ -104,6 +107,6 @@
 		
 		
 <%-- 		<h1>Medical Conditions records: <%=medicalConditions.size() %></h1> --%>
-
+</div>
 </body>
 </html>

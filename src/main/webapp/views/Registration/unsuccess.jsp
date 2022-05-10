@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>unSuccess</h1>
+	<h1>User Name Already Exists</h1>
+	<a href="/HospitalManagementSystem/RegistrationServlet">Go Back to Login Page</a>
 </body>
 </html>

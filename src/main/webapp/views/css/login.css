@@ -3,7 +3,7 @@ body {
 	
 }
 
-#logtxt {
+.titletxt {
   text-align: center;
   color: rgba(48, 53, 96);
   padding: 0px;
@@ -12,7 +12,7 @@ body {
 input[type="text"],
 input[type="password"],
 input[type="tel"] {
-  width: 50%;
+  width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -23,9 +23,10 @@ input[type="tel"] {
 label {
   color: rgba(48, 53, 96);
   font-size: 17px;
+  font-weight: bold;
 }
 
-.login {
+.container{
   width: 400px;
   border: 10px outset rgba(48, 53, 96);
   overflow: hidden;
@@ -35,7 +36,7 @@ label {
   border-radius: 50px;
 }
 
-#log {
+.btn {
   width: 150px;
   height: 50px;
   margin: auto;
@@ -50,7 +51,7 @@ label {
   font-weight: bold;
 }
 
-#log:hover {
+.btn:hover {
   background-color: white;
   color: rgba(1, 176, 188, 0.932);
 }

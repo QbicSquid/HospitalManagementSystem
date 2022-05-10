@@ -42,7 +42,7 @@ public class UserDetailsServlet extends HttpServlet {
 
 			
 			
-		System.out.println("Check Session: "+user.getId());
+//		System.out.println("Check Session: "+user.getId());
 		request.getRequestDispatcher("/views/Profile/viewProfile.jsp").forward(request, response);
 		}
 
@@ -50,7 +50,7 @@ public class UserDetailsServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Check do post");
+//		System.out.println("Check do post");
 		
 					
 
