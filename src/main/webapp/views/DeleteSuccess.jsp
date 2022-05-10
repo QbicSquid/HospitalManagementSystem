@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>DeleteSuccess</h1>
+<h1>  Delete Success Thank you for ordering </h1>
 </body>
 </html>
