@@ -16,7 +16,9 @@
 		<input type="text" name="username" placeholder="Enter your username" required><br>
 		<label><b>Password </b> </label><br>
 		<input type="password" name="password" placeholder="Enter your password" required><br>
-		<input type="submit" name="submit" id="log" value="Login">
+		<input type="submit" name="submit" id="log" value="Login"><br>
+		<a href ="/HospitalManagementSystem/RegistrationServlet">Create new Account</a>
+		
 	</form>
 	</div>
 </body>

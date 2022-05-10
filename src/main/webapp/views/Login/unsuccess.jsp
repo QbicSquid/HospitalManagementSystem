@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>failed</h1>
+<h1>Incorrect User name or Password</h1>
+<a href="/HospitalManagementSystem/LoginServlet">Redirect to User Details</a>
 
 </body>
 </html>

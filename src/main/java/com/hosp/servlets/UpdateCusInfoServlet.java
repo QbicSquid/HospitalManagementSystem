@@ -36,38 +36,62 @@ public class UpdateCusInfoServlet extends HttpServlet {
 			String email = request.getParameter("email");
 	        String address = request.getParameter("address");
 	        String dob = request.getParameter("dob");
+	        String gender = request.getParameter("gender");
 	        
-	        System.out.println("check firstName:"+ firstName);
-	        
+	        boolean custCheck;
 	        boolean isTrue1;
 	        boolean isTrue2;
 	        
+	        custCheck = CustomerDAO.isExistingCustomer(user.getId());
+	        
+	        if(custCheck==true) {
+	        
 	        isTrue1 = CustomerDAO.updateCustomerInfo(user.getId(), contactNo, email, address, dob);
 	        isTrue2 = CustomerDAO.updateUserInfo(user.getId(), firstName, middleName, lastName);
-	        System.out.println("checke return 1:"+isTrue1);
-//	        System.out.println("checke return 2:"+isTrue2);
 	        
-	        if(isTrue1 == true && isTrue2== true) {
+	        	if(isTrue1 == true && isTrue2== true) {
 	        	
-	        	User user1;
-				user = Getuser.getUserFromUsername(user.getUsername());
-				session.setAttribute("user", user);
+	        		User user1;
+	        		user = Getuser.getUserFromUsername(user.getUsername());
+	        		session.setAttribute("user", user);
 				
-				Customer customer;
-				customer = CustomerDAO.getCustomer(user.getId());
-				session.setAttribute("customer", customer);
+	        		Customer customer;
+	        		customer = CustomerDAO.getCustomer(user.getId());
+	        		session.setAttribute("customer", customer);
 	        	
-	        	List<MedicalCondition> medicalCondition;
-				medicalCondition = CustomerDAO.getMedicalCondition(user.getId());
-				request.setAttribute("medicalCondition", medicalCondition);
+	        		List<MedicalCondition> medicalCondition;
+	        		medicalCondition = CustomerDAO.getMedicalCondition(user.getId());
+	        		request.setAttribute("medicalCondition", medicalCondition);
 	        	
-	        	request.getRequestDispatcher("/views/Profile/viewProfile.jsp").forward(request, response);
+	        		request.getRequestDispatcher("/views/Profile/viewProfile.jsp").forward(request, response);
 				
 
-			} else {
-				request.getRequestDispatcher("/views/Profile/failed.jsp").forward(request, response);
+	        	} else {
+	        		request.getRequestDispatcher("/views/Profile/failed.jsp").forward(request, response);
+	        	}
+	        }else {
+	        	boolean insertCheck;
+	        	
+	        	insertCheck = CustomerDAO.insertCustomerInfo(user.getId(),contactNo,email,address,dob,gender);
+	        
+	        	if(insertCheck==true) {
+				
+	        		Customer customer;
+	        		customer = CustomerDAO.getCustomer(user.getId());
+	        		session.setAttribute("customer", customer);
+	        	
+	        		List<MedicalCondition> medicalCondition;
+	        		medicalCondition = CustomerDAO.getMedicalCondition(user.getId());
+	        		request.setAttribute("medicalCondition", medicalCondition);
+	        	
+	        		request.getRequestDispatcher("/views/Profile/viewProfile.jsp").forward(request, response);
+				
 
-			}
+	        	} else {
+	        		request.getRequestDispatcher("/views/Profile/failed.jsp").forward(request, response);
+	        	}
+	        }
+	       }
 			
 			
 			
@@ -75,4 +99,3 @@ public class UpdateCusInfoServlet extends HttpServlet {
 		
 	}
 
-}

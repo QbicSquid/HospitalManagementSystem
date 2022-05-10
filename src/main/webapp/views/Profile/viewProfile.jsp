@@ -56,14 +56,14 @@
 				<td>Date of Birth</td>
 				<td><input type = "date" name="dob" value="<%=customer.getDob() %>"/></td>
 			</tr>
-			<tr>
-				<td>Gender</td>
-				<td>
+<!-- 			<tr> -->
+<!-- 				<td>Gender</td> -->
+<!-- 				<td> -->
 <%-- 					<input type = "radio" name="gender" value="M" <%= customer.getGender().equals("M")  ?  "checked":"" %> />M --%>
 <%-- 					<input type = "radio" name="gender" value="F" <%= customer.getGender().equals("F")  ?  "checked":"" %> />F --%>
-						<%=customer.getGender() %>
-				</td>
-			</tr>
+<%-- 						<%=customer.getGender() %> --%>
+<!-- 				</td> -->
+<!-- 			</tr> -->
 			
 		</table>
 		<input type="submit" name="update" value="update">
@@ -103,7 +103,7 @@
 		<a href='/HospitalManagementSystem/LogoutServlet'>Log Out</a>
 		
 		
-		<h1>Debug: <%=medicalConditions.size() %></h1>
+<%-- 		<h1>Medical Conditions records: <%=medicalConditions.size() %></h1> --%>
 
 </body>
 </html>

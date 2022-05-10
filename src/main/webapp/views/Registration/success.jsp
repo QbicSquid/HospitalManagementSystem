@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>Success</h1>
-
+<a href="/HospitalManagementSystem/LoginServlet">Redirect to Login Page</a>
 </body>
 </html>

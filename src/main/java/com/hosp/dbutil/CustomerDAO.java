@@ -28,16 +28,16 @@ public class CustomerDAO {
 				
 				rs = preparedstatement.executeQuery();
 				
-				if (!rs.next()) {
-					throw new SQLException("Query returned 0 results.");
+				if (rs.next()) {
+					customer.setId(rs.getString(1));
+					customer.setContact(rs.getString(2));
+					customer.setEmail(rs.getString(3));
+					customer.setAddress(rs.getString(4));
+					customer.setDob(rs.getString(5));
+					customer.setGender(rs.getString(6));
 				}
 				
-				customer.setId(rs.getString(1));
-				customer.setContact(rs.getString(2));
-				customer.setEmail(rs.getString(3));
-				customer.setAddress(rs.getString(4));
-				customer.setDob(rs.getString(5));
-				customer.setGender(rs.getString(6));
+
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
@@ -132,6 +132,37 @@ public class CustomerDAO {
 			return medicalConditions;
 		}
 		
+		public static boolean isExistingCustomer(String userid) {
+			Connection con;
+			Statement stmt;
+			ResultSet rs;
+			boolean isSuccess= false;
+			try {
+	    		con = Conn.getDBConnection();
+	    		stmt = con.createStatement();
+	    		String query = "SELECT * " + "FROM customer " +"WHERE userID=?;";
+				
+				PreparedStatement preparedstatement = con.prepareStatement(query);
+				preparedstatement.setString(1, userid);
+				
+				rs = preparedstatement.executeQuery();
+				
+				if (rs.next()) {
+					isSuccess = true;
+				
+	    		} else {
+	    			isSuccess = false;
+	    		}
+			
+			}
+			catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+			return isSuccess;
+			
+		}
+			
+		
 		
 		public static boolean insertCustomerInfo(String userId,String contactNo,String email,String address,String dob,String gender) {
 			Connection con;
@@ -142,7 +173,8 @@ public class CustomerDAO {
 	    		con = Conn.getDBConnection();
 	    		stmt = con.createStatement();
 	    		
-	    		String sql = "insert into user values ('"+userId+"','"+contactNo+"','"+email+"','"+address+"','"+dob+"','"+gender+"')";
+	    		
+	    		String sql = "insert into customer values ('"+userId+"','"+contactNo+"','"+email+"','"+address+"','"+dob+"','M')";
 	    		int count = stmt.executeUpdate(sql);
 	    		
 	    		if(count > 0) {
@@ -202,7 +234,7 @@ public class CustomerDAO {
 					}
 				}
 			}
-			System.out.println("checke return in 1:"+isSuccess);
+//			System.out.println("checke return in 1:"+isSuccess);
 			return isSuccess;
 			
 		}
@@ -213,7 +245,7 @@ public class CustomerDAO {
 			ResultSet rs;
 			PreparedStatement preparedstatement = null;
 			
-			System.out.println("check userID:"+userId);
+//			System.out.println("check userID:"+userId);
 			boolean isSuccess= false;
 			try {
 	    		con = Conn.getDBConnection();
@@ -240,7 +272,7 @@ public class CustomerDAO {
 			catch (Exception e) {
 	    		e.printStackTrace();
 	    	}
-			System.out.println("checke return in 2:"+isSuccess);
+//			System.out.println("checke return in 2:"+isSuccess);
 			return isSuccess;
 			
 		}

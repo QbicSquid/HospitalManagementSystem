@@ -27,7 +27,6 @@ public class UserDetailsServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("username")!=null) {
 			username = (String)session.getAttribute("username");
-			System.out.println("Check Session:"+username);
 			
 			User user;
 			user = Getuser.getUserFromUsername(username);
@@ -45,8 +44,6 @@ public class UserDetailsServlet extends HttpServlet {
 			
 		System.out.println("Check Session: "+user.getId());
 		request.getRequestDispatcher("/views/Profile/viewProfile.jsp").forward(request, response);
-//		System.out.println("Check doget");
-//		response.getWriter().print("OK");
 		}
 
 	}
@@ -55,33 +52,7 @@ public class UserDetailsServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("Check do post");
 		
-			
-//			List<User> userDetails = new ArrayList<>();
-			
-//			User user1 = new User(id,username,password,firstname,middlename,lasstname);
-//			userDetails.add(user1);
-//			request.setAttribute("userDetails", userDetails);
-			
-			
-
-//			ArrayList<User> userDetails = new ArrayList<>();
-//			
-//					static String id = user.getId();
-//					String username = user.getPassword();
-//					String email = rs.getString(3);
-//					String phone = rs.getString(4);
-//					String username = rs.getString(5);
-//					String password = rs.getString(6);
-//					
-//					Customer cus = new Customer(id,name,email,phone,username,password);
-//					customer.add(cus);
-//			
-//			List<Customer> cusDetails = CustomerDBUtil.getCustomer(userName);
-//			request.setAttribute("cusDetails", cusDetails);
-
-//			request.getRequestDispatcher("viewProfile.jsp").forward(request, response);/
-
-		
+					
 
 	}
 }
