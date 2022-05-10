@@ -11,11 +11,11 @@
 <body>
 	<div class="login">
 	<h1 id="logtxt">Login Page</h1>
-	<form action="LoginServlet" method="post">
+	<form action="<%=request.getContextPath()%>/LoginServlet" method="post">
 		<label><b>User Name</b> </label><br>
-		<input type="text" name="username" placeholder="Enter your username"><br>
+		<input type="text" name="username" placeholder="Enter your username" required><br>
 		<label><b>Password </b> </label><br>
-		<input type="password" name="password" placeholder="Enter your password"><br>
+		<input type="password" name="password" placeholder="Enter your password" required><br>
 		<input type="submit" name="submit" id="log" value="Login">
 	</form>
 	</div>

@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import com.hosp.dbutil.Getuser;
 import com.hosp.model.User;
+import com.mysql.cj.Session;
 
 import java.io.IOException;
 //import java.io.PrintWriter;
@@ -25,17 +26,10 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		//PrintWriter out =response.getWriter();
 		
 		String username =request.getParameter("username");
 		String password =request.getParameter("password");
 		User user = Getuser.getUserFromUsername(username);
-		
-		//System.out.println("DEBUG LINE " + username);  debug line
-		//System.out.println("DEBUG LINE " + user.getUsername());  debug line
-		
-		//System.out.println("DEBUG LINE " + password);  debug line
-		//System.out.println("DEBUG LINE " + user.getPassword());  debug line
 		
 		if (password.equals(user.getPassword())) {
 			HttpSession session = request.getSession();
@@ -45,6 +39,5 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			request.getRequestDispatcher("/views/Login/unsuccess.jsp").forward(request, response);
 		}
-
 	}
 }

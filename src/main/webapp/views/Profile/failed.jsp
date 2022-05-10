@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>success</h1>
-	<a href="/HospitalManagementSystem/UserDetailsServlet">Redirect to User Details</a>
+<h1>Failed</h1>
+
 </body>
 </html>
