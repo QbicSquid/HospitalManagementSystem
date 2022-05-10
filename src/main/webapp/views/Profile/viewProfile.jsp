@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<style><%@include file="/views/css/login.css"%></style>
+<title>Customer Profile</title>
 </head>
 <body>
 
@@ -17,20 +18,21 @@
 	List<MedicalCondition> medicalConditions=(List<MedicalCondition>)request.getAttribute("medicalCondition");
 	
 %>
-<div class="pageContainer">
+<div class="container">
 	<form action="<%=request.getContextPath()%>/UpdateCusInfoServlet" method="post">
-	<h1 id="heading">Customer Profile</h1>
+	<h1 class="titletxt">Customer Profile</h1>
+	<h3 class="heading2"><%=user.getId() %></h3>
 	<h2 class="heading2"><%=user.getUsername()%></h2>
-	<h2 class="heading2"><%=user.getId() %></h2>
+	
 	<table>
-			<tr>
-				<td>Customer ID</td>
-				<td><%=user.getId() %></td>
-			</tr>
-			<tr>
-				<td>User name</td>
-				<td><%=user.getUsername()%></td>
-			</tr>
+<!-- 			<tr> -->
+<!-- 				<td>Customer ID</td> -->
+<%-- 				<td><%=user.getId() %></td> --%>
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>User name</td> -->
+<%-- 				<td><%=user.getUsername()%></td> --%>
+<!-- 			</tr> -->
 			<tr>
 				<td>First Name</td>
 				<td><input type = "text" name="firstname" value="<%=user.getFirstName() %>"/></td>
@@ -69,21 +71,26 @@
 <!-- 			</tr> -->
 			
 		</table>
-		<input type="submit" name="update" value="update">
+		<input type="submit" name="update" value="update" class="btn">
 	</form>
 	
 <form action="<%=request.getContextPath()%>/MedicalConditionServelet" method="post">
-<table>
+<!-- <table> -->
 
-			<tr>
+<!-- 			<tr> -->
 			
-				<td>Add New Medical Condition</td>
-			</tr>
-			<tr>
-			<td><input type="text" name="medcon" placeholder="Add A New Medical Condition Here"/></td>
-			<td><input type="submit" name="ADD" value="ADD" /></td>
-			</tr>
-</table>
+<!-- 				<td> -->
+				<h3 class="heading2">Add New Medical Condition</h3>
+<!-- 				</td> -->
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 			<td> -->
+			<input type="text" name="medcon" placeholder="Add A New Medical Condition Here"/>
+<!-- 			<br></td> -->
+<!-- 			<td></td> -->
+<!-- 			</tr> -->
+<!-- </table> -->
+			<input type="submit" name="ADD" value="ADD" class="btn2"/><br><br>
 </form>
 <table border="1">
 
@@ -102,6 +109,7 @@
 	
 %>
 			</table>
+			<br><br>
 		
 		<a href='/HospitalManagementSystem/LogoutServlet'>Log Out</a>
 		
