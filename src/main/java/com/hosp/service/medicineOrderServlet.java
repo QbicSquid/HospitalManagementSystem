@@ -1,7 +1,7 @@
 package com.hosp.service;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -43,7 +43,7 @@ private MedicineDAO getMedDAO;
 						}
 						break;
 						
-				
+				}
 				request.getRequestDispatcher("/views/index.jsp").forward(request, response);
 			}
 	
@@ -59,10 +59,10 @@ private MedicineDAO getMedDAO;
 				String deliveryAddress = request.getParameter("deliveryAddress");
 				String deliveryState = request.getParameter("deliveryState");
 				String Date = request.getParameter("Date");
-				String custID = "UC001";
-				//String custID = request.getParameter("custID");
-				String paymentID = "PO002";
-				//String paymentID = request.getParameter("paymentID");
+				//String custID = "UC001";
+				String custID = request.getParameter("custID");
+				//String paymentID = "PO002";
+				String paymentID = request.getParameter("paymentID");
 				
 				System.out.println("debug line 4");
 				

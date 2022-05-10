@@ -52,11 +52,18 @@ public class deleteOrderServlet extends HttpServlet {
 				throws SQLException, IOException, ServletException {
 			
 				System.out.println("DeleteStock is Working");
-				String custID = request.getParameter("custID");
+				
+				String id = request.getParameter("ordrId");
+				//System.out.println(deliveryAddresss);
+				
+				String custID = request.getParameter("custId");
 				System.out.println(custID);
-				String paymentID = request.getParameter("paymentID");
+				
+				String paymentID = request.getParameter("paymentId");
 				System.out.println(paymentID);
-				getMedDAO.deleteOrder(custID, paymentID);
+				
+				getMedDAO.deleteOrder(id,custID, paymentID);
+				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/cart.jsp");
 				dispatcher.forward(request, response);
 				}

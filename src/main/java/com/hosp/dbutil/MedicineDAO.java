@@ -138,21 +138,25 @@ public class MedicineDAO {
 		}
 		
 		//update
-		public void updateMedicine(String custID, String paymentID, String deliveryAddress) {
+		public void updateMedicine(String id, String custID, String paymentID, String deliveryAddress) {
 			System.out.println("Update med function working");
+			System.out.println(id);
 			System.out.println(custID);
 			System.out.println(paymentID);
 			System.out.println(deliveryAddress);
 			String query;
 			PreparedStatement preparedStatement;
 
-			query = "UPDATE medicineOrder SET amount = ? WHERE custID = ? AND paymentID=?;";
+			query = "UPDATE medicineOrder SET deliveryAddress = ? WHERE id = ? AND custID = ? AND paymentID=?;";
 
 			try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(2, custID);
-			preparedStatement.setString(3, paymentID);
 			preparedStatement.setString(1, deliveryAddress);
+			preparedStatement.setString(2, id);
+			preparedStatement.setString(3, custID);
+			preparedStatement.setString(4, paymentID);
+			
+			
 			System.out.println(preparedStatement.toString());
 			preparedStatement.execute();
 
@@ -165,17 +169,21 @@ public class MedicineDAO {
 			}
 
 		//delete
-		public void deleteOrder(String custID, String paymentID) {
+		public void deleteOrder(String id, String custID, String paymentID) {
 			String query;
 			PreparedStatement preparedStatement;
 
-			query = "DELETE FROM medicineOrder WHERE custID = ? AND paymentID=?;";
+			query = "DELETE FROM medicineOrder WHERE id = ? AND custID = ? AND paymentID=?;";
 
 			try {
 			preparedStatement = con.prepareStatement(query);
-			preparedStatement.setString(1,custID);
-			preparedStatement.setString(2,paymentID);
+			preparedStatement.setString(1,id);
+			preparedStatement.setString(2,custID);
+			preparedStatement.setString(3,paymentID);
+			
 			preparedStatement.execute();
+			System.out.println(preparedStatement.toString());
+			System.out.println("deletion success");
 
 			} catch (SQLException e) {
 			System.out.println(e.getMessage());

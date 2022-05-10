@@ -9,15 +9,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import com.hosp.dbutil.MedicineDAO;
+
+
+
 
 public class updateMedicineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public updateMedicineServlet() {
-        super();
- 
-    }
+	private MedicineDAO getMedDAO;
+		
+		public updateMedicineServlet() {
+				super();
+				this.getMedDAO = new MedicineDAO();
+		}
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,18 +48,30 @@ public class updateMedicineServlet extends HttpServlet {
 						break;
 					
 				}
+				request.getRequestDispatcher("/views/updateSuccess.jsp").forward(request, response);
 		}
 		private void updateMedicine(HttpServletRequest request, HttpServletResponse response)
 				throws SQLException, IOException, ServletException {
 			
 				System.out.println("EditMed is Working");
-				String custID = request.getParameter("custID");
+				
+				String id = request.getParameter("ordrId"); //take the auto generated id here
+				System.out.println(id);
+				
+				//String custID = "UC001";
+				String custID = request.getParameter("custId");
 				System.out.println(custID);
-				String paymentID = request.getParameter("paymentID");
+				
+				//String paymentID = "PO002";
+				String paymentID = request.getParameter("paymentId");
 				System.out.println(paymentID);
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/cart.jsp");
-				dispatcher.forward(request, response);
+				String deliveryAddress = request.getParameter("deliveryAddress");
+				System.out.println(deliveryAddress);
+				
+				getMedDAO.updateMedicine(id, custID, paymentID, deliveryAddress);
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("/views/updateSuccess.jsp");
+				//dispatcher.forward(request, response);
 				//response.sendRedirect("/views/showStock.jsp");
 				}
 	

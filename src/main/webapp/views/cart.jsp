@@ -11,8 +11,7 @@
 </head>
 <body>
 
-<%String id = session.getAttribute("id").toString(); %>
-Hello<%=id%>
+
 
 <table>
 	<tr>
@@ -45,6 +44,8 @@ Hello<%=id%>
 <input type="hidden" name="quantity" value="<%= request.getParameter("medicineQty")%>" />
 <input type="hidden" name="medicinePrice" value="<%= request.getParameter("medicinePrice")%>" />
 -->
+		<input type="text" name="custID" />
+		<input type="text" name="paymentID" />
 		<input type="text" name="deliveryAddress" />
     	<input type="text" name="deliveryState" />
     	<input type="text" name="Date" />
@@ -54,9 +55,7 @@ Hello<%=id%>
 
 
 
-<form action="<%=request.getContextPath()%>/placeOrderServlet" method="post">
-<button type="submit"  class="btn btn-warning" name="order" value="submit">Add Medicine</button>
-</form>
+
 
 </body>
 </html>

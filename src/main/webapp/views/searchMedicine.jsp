@@ -47,9 +47,9 @@
 	
 </table>
 
-<% String id="Customer";%>
+
     <form action="<%=request.getContextPath()%>/views/cart.jsp" method="post">
-    <%session.setAttribute("id", id);%>
+    
     	 
     	<input type="hidden" name="medicineID" value=${ medicineQty.id } />
     	<input type="hidden" name="medicineName" value=${ medicineQty.name } />
