@@ -1,0 +1,90 @@
+@charset "UTF-8";
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("imeges/wall.jpg");
+	background-attachment:fixed;
+	background-size: 100%;
+	
+}
+
+.titletxt {
+  text-align: center;
+  color: rgba(48, 53, 96);
+  padding: 0px;
+}
+
+.heading2{
+	text-align: center;
+	color: rgba(48, 53, 96);
+  	padding: 0px;
+}
+
+input[type="date"],
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+label {
+  color: rgba(48, 53, 96);
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.container{
+  max-width: 80%;
+  border: 10px outset rgba(48, 53, 96);
+  overflow: hidden;
+  margin: auto;
+  margin-top: 50px;
+  padding: 80px;
+  background: white;
+  border-radius: 50px;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  display: block;
+  border: 3px solid rgba(1, 176, 188);
+  border-radius: 10px;
+  padding-left: 7px;
+  color: white;
+  background-color: rgba(1, 176, 188);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+.btn2 {
+  width: 75px;
+  height: 25px;
+  margin: auto;
+  display: block;
+  border: 3px solid rgba(1, 176, 188);
+  border-radius: 10px;
+  padding-left: 7px;
+  color: white;
+  background-color: rgba(1, 176, 188);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn2:hover {
+  background-color: white;
+  color: rgba(1, 176, 188, 0.932);
+}
+
+.btn:hover {
+  background-color: white;
+  color: rgba(1, 176, 188, 0.932);
+}

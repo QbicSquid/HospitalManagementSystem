@@ -99,6 +99,7 @@ public class Appointment extends HttpServlet {
 	private void pay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AppointmentDAO appointmentDAO = AppointmentDAO.getAppointmentDAO();
 		DoctorSchedule doctorSchedule = new DoctorSchedule();
+		String userID = "UC001"; // hard coded for now, should get from session
 		
 		doctorSchedule.setDayOfWeek(request.getParameter("doctorID"));
 		doctorSchedule.setDoctorID(request.getParameter("dayOfWeek"));
@@ -167,7 +168,6 @@ public class Appointment extends HttpServlet {
 		String date = request.getParameter("date");
 		String time = request.getParameter("startTime");
 		String date_time = date + " " + time;
-		System.out.println(date_time); // debug line
 		String remarks = request.getParameter("remarks");
 		String doctorOrLabID = request.getParameter("doctorID");
 		

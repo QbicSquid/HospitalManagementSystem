@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style><%@include file="/views/css/mystyle.css"%></style>
+<style><%@include file="/views/css/style1.css"%></style>
 <title>Insert title here</title>
 </head>
 <body>
