@@ -10,7 +10,7 @@
 <h2 align="center">Stock Update Form</h2>
 <body>
 	<form action="<%= request.getContextPath() %>/Update" method = "post">
-		<table align="center">
+		<table align="center" class="container">
 			<tr>
 				<td>medicineID</td>
 	 			<td><input type = "text" name="medicineID" value="<%= request.getParameter("medicineIDs")%>"/></td>

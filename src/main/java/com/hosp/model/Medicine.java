@@ -7,9 +7,9 @@ public class Medicine implements Serializable {
 	private String name;
 	private double cost;
 	private String description;
-	
-	
-	
+
+
+
 	public Medicine(String id, String name, int cost, String description) {
 		super();
 		this.id = id;
@@ -17,10 +17,10 @@ public class Medicine implements Serializable {
 		this.cost = cost;
 		this.description = description;
 	}
-	
-	
+
+
 	public Medicine() {
-		
+
 	}
 
 	public String getId() {

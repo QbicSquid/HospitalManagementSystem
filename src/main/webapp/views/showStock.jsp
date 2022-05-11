@@ -22,7 +22,7 @@
 	%>
 
 	
-	<table  align="center">
+	<table  align="center" class ="table">
 		<tr>
 		    <th>Medicine ID</th>
 		    <th>StockPile ID</th>

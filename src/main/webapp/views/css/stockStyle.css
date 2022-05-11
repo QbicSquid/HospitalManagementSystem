@@ -3,7 +3,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-image: url("/images/hospital.jpg");
+	background-image: url("webapp/views/images/hospital.jpg");
 	background-attachment: fixed;
 	background-size: 100%;
 }
@@ -106,4 +106,14 @@ label {
 .Update-Delete:hover {
 	background-color: white;
 	color: rgba(1, 176, 188, 0.932);
+}
+
+.table {
+	width: 1500px;
+	border: 10px outset rgba(48, 53, 96);
+	overflow: hidden;
+	margin: auto;
+	padding: 80px;
+	background: white;
+	border-radius: 50px;
 }

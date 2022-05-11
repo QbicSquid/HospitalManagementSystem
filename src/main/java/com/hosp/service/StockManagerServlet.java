@@ -66,7 +66,7 @@ public class StockManagerServlet extends HttpServlet {
 				
 				//read
 				try{
-					System.out.println("Read switch case is working");
+					System.out.println("Read switch case is working");  //debug
 					readStock(request, response);
 				} catch(SQLException e) {
 					e.printStackTrace();
@@ -74,7 +74,7 @@ public class StockManagerServlet extends HttpServlet {
 				break;
 				
 			case "/Edit":
-				System.out.println("Edit switch case is working");
+				System.out.println("Edit switch case is working"); //debug
 				try{
 					EditStock(request, response);
 				} catch(SQLException e) {
@@ -83,7 +83,7 @@ public class StockManagerServlet extends HttpServlet {
 				break;
 				
 			case "/Update":
-				System.out.println("Update switch case is working");
+				System.out.println("Update switch case is working");  //debug
 				try{
 					updateStock(request, response);
 				} catch(SQLException e) {
