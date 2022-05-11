@@ -3,18 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel = "stylesheet"
-   	type = "text/css"
-   	href = "css/showStock.css" />
+  <style> <%@include file="/views/css/stockStyle.css"%></style>
 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>STOCK DETAILS</h2>
+	<h2 align="center">STOCK DETAILS</h2>
 	<br>
 	<form action="<%= request.getContextPath() %>/addNewStock" method="post">
-		<input type="submit" value="Add New Stock" class="newStock"/> 
+		<input type="submit" value="Add New Stock" class="btn"/> 
 	</form>
 	<br><br>
 	<%@page import="com.hosp.model.MedicineStock, com.hosp.dbutil.StockManagerDAO" %>
@@ -24,7 +22,7 @@
 	%>
 
 	
-	<table class="tab1">
+	<table  align="center">
 		<tr>
 		    <th>Medicine ID</th>
 		    <th>StockPile ID</th>
@@ -40,7 +38,7 @@
 	for(int i = 0; i < medicineStock.length; i++){
 %>	
 		<tr>
-			<td><input type="text" name="medicineID" class="txt-box"
+			<td><input type="text" name="medicineID" class="txt-box" 
 				 value="<%= medicineStock[i].getMedicineID() %>"/></td>
 				
 			<td><input type="text" name="stockpileID" class="txt-box"

@@ -1,6 +1,9 @@
 package com.hosp.model;
 
-public class MedicineStock {
+import java.io.Serializable;
+
+//interface
+public class MedicineStock implements Serializable{
 	private String medicineID;
 	private String stockpileID;
 	private String manuDate;
@@ -20,13 +23,6 @@ public class MedicineStock {
 		this.amount = amount;
 	}
 	
-	public MedicineStock(String stockpileID, String manuDate, String expDate, int amount) {
-		super();
-		this.stockpileID = stockpileID;
-		this.manuDate = manuDate;
-		this.expDate = expDate;
-		this.amount = amount;
-	}
 
 	public String getMedicineID() {
 		return medicineID;

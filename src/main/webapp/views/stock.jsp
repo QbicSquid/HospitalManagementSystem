@@ -3,46 +3,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/showStock.css" />
+<style><%@include file="/views/css/stockStyle.css"%></style>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert Stock</title>
 </head>
 <body>
-
-	<h2>ADD STOCK</h2>
-	<form action="<%=request.getContextPath()%>/ManageStock"
-		method="post">
-		<table class="tab1">
+	<div class="container">
+  	<h1 class="titletxt">ADD STOCK</h1>
+	<form action="<%=request.getContextPath()%>/ManageStock" method="post">
+		<table >
 			<tr>
 				<td>medicineID</td>
-				<td><input type="text" name="medicineID" required />
+				<td><input type="text" name="medicineID" placeholder="Enter medicine ID" maxlength="5" minlength="5" required />
 				<td>
 			</tr>
 			<tr>
-				<td>manuDate</td>
+				<td>manufacture Date</td>
 				<td><input type="date" name="manuDate" id="manuDate" required />
 				<td>
 			</tr>
 			<tr>
-				<td>expDate</td>
+				<td>exp Date</td>
 				<td><input type="date" name="expDate" id="expDate" required />
 				<td>
 			</tr>
 			<tr>
 				<td>amount</td>
-				<td><input type="text" name="amount" required />
+				<td><input type="text" name="amount" placeholder="Enter amount stock" required />
 				<td>
 			</tr>
 		</table>
 
 		<br> <input type="submit" name="submit" value="addstock"
-			class="Update-Delete" onclick="return myFunction()" /> <br>
-		<br>
-		<br>
-		<br>
-		<br>
+			class="btn" onclick="return myFunction()" /> <br>
 	</form>
-
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
 	<form action="<%=request.getContextPath()%>/placeOrderServlet"
 		method="post" class="search">
 		Medicine Name <input type="text" name="medname" /> <input
@@ -72,7 +72,7 @@
 			</tr>
 		</table>
 	</form>
-
+	</div>
 	<script>
 		function myFunction() {
 			var manuDate = document.getElementById("manuDate").value;

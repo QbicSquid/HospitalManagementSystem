@@ -133,7 +133,6 @@ public class StockManagerDAO {
 	}
 	
 	//read
-
 	public MedicineStock[] readStock() {
 		String query;
 		PreparedStatement preparedStatement;

@@ -15,6 +15,7 @@ import com.hosp.model.MedicineStock;
 /**
  * Servlet implementation class StockManagerServlet
  */
+//inheritance
 public class StockManagerServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

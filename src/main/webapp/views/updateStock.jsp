@@ -3,16 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel = "stylesheet"
-   type = "text/css"
-   href = "css/showStock.css" />
+<style><%@include file="/views/css/stockStyle.css"%></style>
 <meta charset="ISO-8859-1">
 <title>Update Stock</title>
 </head>
-<h2>Stock Update Form</h2>
+<h2 align="center">Stock Update Form</h2>
 <body>
 	<form action="<%= request.getContextPath() %>/Update" method = "post">
-		<table class="update">
+		<table align="center">
 			<tr>
 				<td>medicineID</td>
 	 			<td><input type = "text" name="medicineID" value="<%= request.getParameter("medicineIDs")%>"/></td>
