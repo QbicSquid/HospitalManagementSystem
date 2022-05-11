@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style><%@include file="/views/css/style1.css"%></style>
+<style><%@include file="/views/css/style1.css"%>
+<%@include file="/views/css/table1.css"%></style>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -12,7 +13,7 @@
 <div class = "container">
 
 <form action = "<%=request.getContextPath() %>/updateMedicineServlet"method ="post">
-	<table>
+	<table class = "mtable">
 		<tr>
 			<td>OrderId</td>
 			<td><input type = "text" name = "ordrId" maxlength="5" size="5"/></td>
@@ -36,7 +37,7 @@
 	<input type="hidden" name="ordrId" value= ${ id } />
 	<input type="hidden" name="custId" value=${ custID } />
 	<input type="hidden" name="paymentId"value=${ paymentID } />
-	<button type="submit"   class="btn btn-warning" name="update"  value="update">Update Order</button>
+	<button type="submit"   class="btn btn-warning" name="update"  value="update" onclick="alert('Update Success')">Update Order</button>
 </form>
 </div>
 </body>

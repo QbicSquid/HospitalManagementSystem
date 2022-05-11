@@ -5,9 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-<%@include file="/views/css/style1.css"%>
-<%@include file="/views/css/table1.css"%>
+<style><%@include file="/views/css/style1.css"%>
+<style><%@include file="/views/css/table1.css"%>
 table, th, td {
   border: 1px solid black;
   
@@ -53,10 +52,10 @@ table, th, td {
 	<input type="hidden" name="medicinePrice" value="<%= request.getParameter("medicinePrice")%>" />
 	-->
 			<label for="custid"> Enter Customer ID                </label>
-			<input type="text" name="custID" maxlength="5" size="5" /><br><br>
+			<input type="text" name="custID" /><br><br>
 			
 			<label for="payid"> Enter Payment ID                  </label>
-			<input type="text" name="paymentID" maxlength="5" size="5"/><br><br>
+			<input type="text" name="paymentID" /><br><br>
 			
 			<label for="address"> Enter Customer Delivery Address </label>
 			<input type="text" name="deliveryAddress" /><br><br>
@@ -65,9 +64,9 @@ table, th, td {
 	    	<input type="text" name="deliveryState" /><br><br>
 	    	
 	    	<label for="date"> Enter Date                         </label>
-	    	<input type="date" name="Date" min="2022-05-11"/><br><br>
+	    	<input type="date" name="Date" min="2022-05-10"/><br><br>
 	
-	<button type="submit"   class="btn btn-warning" name="insert" value="submit" onclick="alert('Insert Success')">Place Order</button>
+	<button type="submit"   class="btn btn-warning" name="insert" value="submit">Place Order</button>
 	</form>
 </div>
 </body>

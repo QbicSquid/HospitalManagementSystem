@@ -64,7 +64,7 @@ public class deleteOrderServlet extends HttpServlet {
 				
 				getMedDAO.deleteOrder(id,custID, paymentID);
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/cart.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/views/DeleteSuccess.jsp");
 				dispatcher.forward(request, response);
 				}
 }

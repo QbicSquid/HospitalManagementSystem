@@ -13,7 +13,7 @@
 <div class ="container">
 <form action="<%=request.getContextPath()%>/views/updateOrder.jsp" method="post">
 
-	<button type="submit"   class="btn btn-warning" name="update"  value="submit" >Update Order</button><br><br>
+	<button type="submit"   class="btn btn-warning" name="update"  value="submit">Update Order</button><br><br>
 
 </form>
 

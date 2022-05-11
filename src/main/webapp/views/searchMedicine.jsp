@@ -7,8 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style><%@include file="/views/css/style1.css"%>
-<%@include file="/views/css/table1.css"%>
+<style><%@include file="/views/css/style1.css"%></style>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
@@ -33,7 +32,7 @@ p {text-align: center;}
 
 
 <h4>Searched Medicine</h4>
-<table class = "mtable">
+<table>
 	<tr>
 		<td>Medicine ID          </td>
 		<td>${ medicineQty.id }</td>
